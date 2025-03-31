@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联系表单管理</title>
+  <style>
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f7fb;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2563eb;
+    }
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    .contact-meta {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #eaeaea;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+      color: #666;
+    }
+    .contact-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #2563eb;
+    }
+    .contact-time {
+      font-size: 0.9rem;
+    }
+    .contact-detail {
+      margin-bottom: 12px;
+    }
+    .contact-label {
+      font-weight: bold;
+      display: inline-block;
+      width: 80px;
+    }
+    .contact-message {
+      background-color: #f3f4f6;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 15px;
+      white-space: pre-wrap;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 50px 0;
+      color: #666;
+    }
+    .refresh-btn {
+      background: linear-gradient(90deg, #2563eb, #0891b2);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto 30px;
+      transition: transform 0.3s ease;
+    }
+    .refresh-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+    .delete-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: #ff4757;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+    .delete-btn:hover {
+      background-color: #ff6b81;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal.show {
+      display: flex;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    .modal-actions {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .modal-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .confirm-btn {
+      background-color: #ff4757;
+      color: white;
+    }
+    .cancel-btn {
+      background-color: #f1f2f6;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>联系表单管理</h1>
+    <button id="refreshBtn" class="refresh-btn">刷新数据</button>
+    <div id="loading" class="loading">加载中...</div>
+    <div id="contactList"></div>
+  </div>
+
+  <!-- 确认删除模态框 -->
+  <div id="deleteModal" class="modal">
+    <div class="modal-content">
+      <h3>确认删除</h3>
+      <p>您确定要删除这条联系表单吗？此操作不可撤销。</p>
+      <div class="modal-actions">
+        <button id="confirmDelete" class="modal-btn confirm-btn">确认删除</button>
+        <button id="cancelDelete" class="modal-btn cancel-btn">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 格式化日期函数
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      
+      return `${year}-${month}-${day} ${hours}:${minutes}`;
+    }
+
+    let currentContactIdToDelete = null;
+    const modal = document.getElementById('deleteModal');
+    const confirmDeleteBtn = document.getElementById('confirmDelete');
+    const cancelDeleteBtn = document.getElementById('cancelDelete');
+    
+    // 显示确认删除模态框
+    function showDeleteModal(contactId) {
+      currentContactIdToDelete = contactId;
+      modal.classList.add('show');
+    }
+    
+    // 隐藏确认删除模态框
+    function hideDeleteModal() {
+      modal.classList.remove('show');
+      currentContactIdToDelete = null;
+    }
+    
+    // 删除联系表单
+    async function deleteContact(contactId) {
+      try {
+        const response = await fetch(`/api/admin/contacts/${contactId}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+          // 删除成功，刷新列表
+          loadContacts();
+          alert('删除成功');
+        } else {
+          alert(`删除失败: ${data.message}`);
+        }
+      } catch (error) {
+        console.error('删除联系表单失败:', error);
+        alert('删除联系表单失败，请查看控制台了解详情');
+      }
+    }
+    
+    // 确认删除按钮点击事件
+    confirmDeleteBtn.addEventListener('click', () => {
+      if (currentContactIdToDelete) {
+        deleteContact(currentContactIdToDelete);
+        hideDeleteModal();
+      }
+    });
+    
+    // 取消删除按钮点击事件
+    cancelDeleteBtn.addEventListener('click', hideDeleteModal);
+
+    // 加载联系表单数据
+    async function loadContacts() {
+      const loadingElement = document.getElementById('loading');
+      const contactListElement = document.getElementById('contactList');
+      
+      loadingElement.style.display = 'block';
+      contactListElement.innerHTML = '';
+      
+      try {
+        const response = await fetch('/api/admin/contacts');
+        const data = await response.json();
+        
+        loadingElement.style.display = 'none';
+        
+        if (!Array.isArray(data) || data.length === 0) {
+          contactListElement.innerHTML = '<div class="empty-state"><p>暂无联系表单数据</p></div>';
+          return;
+        }
+        
+        data.forEach(contact => {
+          try {
+            const formattedDate = formatDate(contact.submittedAt);
+            const contactId = contact.submittedAt.replace(/[:.]/g, '-');
+            
+            const contactCard = document.createElement('div');
+            contactCard.className = 'card';
+            contactCard.innerHTML = `
+              <button class="delete-btn" data-id="${contactId}">删除</button>
+              <div class="contact-meta">
+                <span class="contact-name">${contact.name || '未知姓名'}</span>
+                <span class="contact-time">${formattedDate}</span>
+              </div>
+              <div class="contact-detail">
+                <span class="contact-label">邮箱:</span>
+                <a href="mailto:${contact.email}">${contact.email || '未提供'}</a>
+              </div>
+              <div class="contact-detail">
+                <span class="contact-label">电话:</span>
+                <span>${contact.phone || '未提供'}</span>
+              </div>
+              <div class="contact-message">${contact.message || '没有留言内容'}</div>
+            `;
+            
+            contactListElement.appendChild(contactCard);
+          } catch (err) {
+            console.error('渲染联系人卡片时出错:', err, contact);
+          }
+        });
+        
+        // 为所有删除按钮添加点击事件
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const contactId = e.target.getAttribute('data-id');
+            showDeleteModal(contactId);
+          });
+        });
+        
+      } catch (error) {
+        console.error('获取联系人数据失败:', error);
+        loadingElement.style.display = 'none';
+        contactListElement.innerHTML = '<div class="empty-state"><p>获取数据失败，请重试</p></div>';
+      }
+    }
+
+    // 初始加载
+    document.addEventListener('DOMContentLoaded', loadContacts);
+    
+    // 刷新按钮点击
+    document.getElementById('refreshBtn').addEventListener('click', loadContacts);
+  </script>
+</body>
+</html> 
