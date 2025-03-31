@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
+// 加载环境变量
+require('dotenv').config();
 
 // 导入邮件服务 - 使用腾讯云邮件推送服务
 const { sendContactFormEmail } = require('./tencentCloudMailService');
@@ -63,34 +65,38 @@ app.post('/api/send-email', async (req, res) => {
       });
     }
     
-    // 先保存表单数据，确保数据不会丢失
+    console.log('收到表单提交:', formData);
+    
+    // 先保存到本地，确保数据不丢失
     const saveResult = await saveContactForm(formData);
     
-    // 尝试发送邮件，但不阻塞响应
-    sendContactFormEmail(formData)
-      .then(emailResult => {
-        if (emailResult.success) {
-          console.log('邮件发送成功:', emailResult.messageId);
-        } else {
-          console.warn('邮件发送失败，但表单数据已保存:', emailResult.error);
-        }
-      })
-      .catch(err => {
-        console.error('邮件发送过程中发生错误:', err);
-      });
+    // 尝试发送邮件
+    let emailResult;
+    try {
+      emailResult = await sendContactFormEmail(formData);
+    } catch (emailError) {
+      console.error('邮件发送失败:', emailError);
+      emailResult = { 
+        success: false, 
+        error: emailError.message 
+      };
+    }
     
-    // 只要表单保存成功，就返回成功响应
+    // 如果本地保存成功，则返回成功
     if (saveResult.success) {
       return res.json({
         success: true,
-        message: '您的请求已提交，我们会尽快与您联系。',
+        message: emailResult.success 
+          ? '表单提交成功，已发送通知邮件' 
+          : '表单提交成功，但邮件通知发送失败',
+        emailSuccess: emailResult.success,
         savedTo: saveResult.filePath
       });
     } else {
-      // 如果表单保存失败，则返回错误
+      // 如果本地保存失败
       return res.status(500).json({ 
         success: false, 
-        message: '表单保存失败', 
+        message: '保存表单数据失败', 
         error: saveResult.error 
       });
     }

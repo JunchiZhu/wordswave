@@ -19,13 +19,13 @@
 
 <script>
 import HomeHeader from '@/components/HomeHeader.vue';
-import Footer from '@/components/FooterComponent.vue';
+import HomeFooter from '@/components/HomeFooter.vue';
 import Pricing from '@/components/ProductPricing.vue';
 
 export default {
   components: {
     Header: HomeHeader,
-    Footer: Footer,
+    Footer: HomeFooter,
     Pricing,
   },
 };

@@ -32,17 +32,17 @@
             <div class="icon-carousel left-to-right" ref="fileIconsTrack">
               <div class="icon-carousel-inner" :style="{ transform: `translateX(${fileIconsPosition}px)` }">
                 <!-- 复制同样的图标确保无缝循环 -->
-                <div v-for="(icon, index) in fileIcons" :key="`file-pre-${index}`" class="carousel-icon file-icon">
+                <div v-for="(icon, index) in fileSupport" :key="`file-pre-${index}`" class="carousel-icon file-icon">
                   <img :src="icon.img" :alt="icon.name" />
                   <span class="icon-name">{{ icon.name }}</span>
                 </div>
                 <!-- 主要图标 -->
-                <div v-for="(icon, index) in fileIcons" :key="`file-${index}`" class="carousel-icon file-icon">
+                <div v-for="(icon, index) in fileSupport" :key="`file-${index}`" class="carousel-icon file-icon">
                   <img :src="icon.img" :alt="icon.name" />
                   <span class="icon-name">{{ icon.name }}</span>
                 </div>
                 <!-- 复制同样的图标确保无缝循环 -->
-                <div v-for="(icon, index) in fileIcons" :key="`file-post-${index}`" class="carousel-icon file-icon">
+                <div v-for="(icon, index) in fileSupport" :key="`file-post-${index}`" class="carousel-icon file-icon">
                   <img :src="icon.img" :alt="icon.name" />
                   <span class="icon-name">{{ icon.name }}</span>
                 </div>
@@ -55,17 +55,17 @@
             <div class="icon-carousel right-to-left" ref="cloudIconsTrack">
               <div class="icon-carousel-inner" :style="{ transform: `translateX(${cloudIconsPosition}px)` }">
                 <!-- 复制同样的图标确保无缝循环 -->
-                <div v-for="(icon, index) in cloudIcons" :key="`cloud-pre-${index}`" class="carousel-icon cloud-icon">
+                <div v-for="(icon, index) in cloudPlatform" :key="`cloud-pre-${index}`" class="carousel-icon cloud-icon">
                   <img :src="icon.img" :alt="icon.name" />
                   <span class="icon-name">{{ icon.name }}</span>
                 </div>
                 <!-- 主要图标 -->
-                <div v-for="(icon, index) in cloudIcons" :key="`cloud-${index}`" class="carousel-icon cloud-icon">
+                <div v-for="(icon, index) in cloudPlatform" :key="`cloud-${index}`" class="carousel-icon cloud-icon">
                   <img :src="icon.img" :alt="icon.name" />
                   <span class="icon-name">{{ icon.name }}</span>
                 </div>
                 <!-- 复制同样的图标确保无缝循环 -->
-                <div v-for="(icon, index) in cloudIcons" :key="`cloud-post-${index}`" class="carousel-icon cloud-icon">
+                <div v-for="(icon, index) in cloudPlatform" :key="`cloud-post-${index}`" class="carousel-icon cloud-icon">
                   <img :src="icon.img" :alt="icon.name" />
                   <span class="icon-name">{{ icon.name }}</span>
                 </div>
@@ -78,17 +78,26 @@
             <div class="icon-carousel left-to-right" ref="modelIconsTrack">
               <div class="icon-carousel-inner" :style="{ transform: `translateX(${modelIconsPosition}px)` }">
                 <!-- 复制同样的图标确保无缝循环 -->
-                <div v-for="(icon, index) in modelIcons" :key="`model-pre-${index}`" class="carousel-icon model-icon">
+                <div v-for="(icon, index) in aiSupport" :key="`model-pre-${index}`" class="carousel-icon model-icon">
                   <img :src="icon.img" :alt="icon.name" />
                   <span class="icon-name">{{ icon.name }}</span>
                 </div>
                 <!-- 主要图标 -->
-                <div v-for="(icon, index) in modelIcons" :key="`model-${index}`" class="carousel-icon model-icon">
+                <div v-for="(icon, index) in aiSupport" :key="`model-${index}`" class="carousel-icon model-icon">
                   <img :src="icon.img" :alt="icon.name" />
                   <span class="icon-name">{{ icon.name }}</span>
                 </div>
                 <!-- 复制同样的图标确保无缝循环 -->
-                <div v-for="(icon, index) in modelIcons" :key="`model-post-${index}`" class="carousel-icon model-icon">
+                <div v-for="(icon, index) in aiSupport" :key="`model-post-${index}`" class="carousel-icon model-icon">
+                  <img :src="icon.img" :alt="icon.name" />
+                  <span class="icon-name">{{ icon.name }}</span>
+                </div>
+                <!-- 额外的两组图标 -->
+                <div v-for="(icon, index) in aiSupport" :key="`model-extra1-${index}`" class="carousel-icon model-icon">
+                  <img :src="icon.img" :alt="icon.name" />
+                  <span class="icon-name">{{ icon.name }}</span>
+                </div>
+                <div v-for="(icon, index) in aiSupport" :key="`model-extra2-${index}`" class="carousel-icon model-icon">
                   <img :src="icon.img" :alt="icon.name" />
                   <span class="icon-name">{{ icon.name }}</span>
                 </div>
@@ -112,35 +121,30 @@ export default {
       fileIconsPosition: 0,
       cloudIconsPosition: 0,
       modelIconsPosition: 0,
-      fileIcons: [
-        { img: require("@/assets/product_card_1.png"), name: "Excel" },
-        { img: require("@/assets/product_card_2.jpg"), name: "PDF" },
-        { img: require("@/assets/product_card_3.png"), name: "Word" },
-        { img: require("@/assets/product_card_1.png"), name: "PowerPoint" },
-        { img: require("@/assets/product_card_2.jpg"), name: "CSV" },
-        { img: require("@/assets/product_card_3.png"), name: "Markdown" },
-        { img: require("@/assets/product_card_1.png"), name: "JSON" },
-        { img: require("@/assets/product_card_2.jpg"), name: "HTML" },
+      fileSupport: [
+        { img: require("@/assets/icons/file_types/excel_icon.png"), name: "Excel" },
+        { img: require("@/assets/icons/file_types/pdf_icon.png"), name: "PDF" },
+        { img: require("@/assets/icons/file_types/word_icon.png"), name: "Word" },
+        { img: require("@/assets/icons/file_types/powerpoint_icon.png"), name: "PowerPoint" },
+        { img: require("@/assets/icons/file_types/csv_icon.png"), name: "CSV" },
+        { img: require("@/assets/icons/file_types/markdown_icon.png"), name: "Markdown" },
+        { img: require("@/assets/icons/file_types/json_icon.png"), name: "JSON" },
+        { img: require("@/assets/icons/file_types/html_icon.png"), name: "HTML" },
       ],
-      cloudIcons: [
-        { img: require("@/assets/product_card_3.png"), name: "AWS" },
-        { img: require("@/assets/product_card_1.png"), name: "Azure" },
-        { img: require("@/assets/product_card_2.jpg"), name: "Google Cloud" },
-        { img: require("@/assets/product_card_3.png"), name: "Alibaba Cloud" },
-        { img: require("@/assets/product_card_1.png"), name: "Tencent Cloud" },
-        { img: require("@/assets/product_card_2.jpg"), name: "Docker" },
-        { img: require("@/assets/product_card_3.png"), name: "Kubernetes" },
-        { img: require("@/assets/product_card_1.png"), name: "DigitalOcean" },
+      cloudPlatform: [
+        { img: require("@/assets/icons/cloud_platforms/aws_icon.png"), name: "AWS" },
+        { img: require("@/assets/icons/cloud_platforms/azure_icon.png"), name: "Azure" },
+        { img: require("@/assets/icons/cloud_platforms/google_cloud_icon.png"), name: "Google Cloud" },
+        { img: require("@/assets/icons/cloud_platforms/oracle_cloud_icon.png"), name: "Oracle Cloud" },
+        { img: require("@/assets/icons/cloud_platforms/kubernetes_icon.png"), name: "Kubernetes" },
+        { img: require("@/assets/icons/cloud_platforms/digitalocean_icon.png"), name: "DigitalOcean" },
       ],
-      modelIcons: [
-        { img: require("@/assets/product_card_2.jpg"), name: "GPT" },
-        { img: require("@/assets/product_card_3.png"), name: "BERT" },
-        { img: require("@/assets/product_card_1.png"), name: "LLaMA" },
-        { img: require("@/assets/product_card_2.jpg"), name: "Stable Diffusion" },
-        { img: require("@/assets/product_card_3.png"), name: "Claude" },
-        { img: require("@/assets/product_card_1.png"), name: "Gemini" },
-        { img: require("@/assets/product_card_2.jpg"), name: "Transformer" },
-        { img: require("@/assets/product_card_3.png"), name: "DALL-E" },
+      aiSupport: [
+        { img: require("@/assets/icons/ai_models/deepseek_icon.png"), name: "Deepseek" },
+        { img: require("@/assets/icons/ai_models/chatgpt_icon.png"), name: "ChatGPT" },
+        { img: require("@/assets/icons/ai_models/olama_icon.png"), name: "Ollama" },
+        { img: require("@/assets/icons/ai_models/test_icon.png"), name: "Claude" },
+        
       ]
     };
   },
@@ -161,7 +165,7 @@ export default {
     animateFileIcons() {
       const speed = 0.1; // 每毫秒移动的像素
       const iconWidth = 140; // 图标宽度(包含margin)
-      const totalIcons = this.fileIcons.length;
+      const totalIcons = this.fileSupport.length;
       const totalWidth = iconWidth * totalIcons;
       
       // 初始化位置
@@ -189,7 +193,7 @@ export default {
     animateCloudIcons() {
       const speed = 0.1; // 稍微慢一点
       const iconWidth = 140; // 图标宽度(包含margin)
-      const totalIcons = this.cloudIcons.length;
+      const totalIcons = this.cloudPlatform.length;
       const totalWidth = iconWidth * totalIcons;
       
       // 设置初始位置在中间组图标的位置
@@ -215,14 +219,14 @@ export default {
     },
     
     animateModelIcons() {
-      const speed = 0.1; // 稍微快一点
+      const speed = 0.1; 
       const iconWidth = 140; // 图标宽度(包含margin)
-      const totalIcons = this.modelIcons.length;
+      const totalIcons = this.aiSupport.length;
       const totalWidth = iconWidth * totalIcons;
       
       // 初始化位置
       if (this.modelIconsPosition === 0) {
-        this.modelIconsPosition = 0; // 从第一组开始
+        this.modelIconsPosition = 0;
       }
       
       let position = this.modelIconsPosition;
@@ -230,7 +234,7 @@ export default {
       const animate = () => {
         position -= speed;
         
-        // 当第一组完全移出视图，跳回开始位置
+        // 当移动距离超过一组图标的宽度时，重置位置
         if (Math.abs(position) >= totalWidth) {
           position = 0;
         }
@@ -247,7 +251,7 @@ export default {
 
 <style scoped>
 .ecosystem-section {
-  background-color: #f7f8fc; /* 与ProductFeatureSection相同的黑色背景 */
+  background-color:#f0f7ff;
   color: #333333;
   width: 100%;
   padding: 120px 5vw;
@@ -366,18 +370,20 @@ export default {
   width: 100px;
   height: 100px;
   margin: 0 20px;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: white;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 15px;
 }
 
 .carousel-icon:hover {
   transform: translateY(-5px) scale(1.05);
-  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .carousel-icon img {
@@ -385,12 +391,11 @@ export default {
   height: 60%;
   object-fit: contain;
   margin-bottom: 8px;
-  filter: grayscale(30%);
-  transition: filter 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .carousel-icon:hover img {
-  filter: grayscale(0%);
+  transform: scale(1.1);
 }
 
 .icon-name {

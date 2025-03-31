@@ -21,7 +21,7 @@
               <p class="description">{{ companyInfo.software }}</p>
             </div>
             <div class="image-content">
-              <img src="@/assets/company-office.jpg" alt="公司办公室" />
+              <img src="@/assets/company/office.jpg" alt="公司办公室" />
             </div>
           </div>
         </div>

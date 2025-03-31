@@ -1,5 +1,5 @@
 # Node.js
-node_modules/
+/node_modules
 dist/
 npm-debug.log*
 yarn-debug.log*
@@ -19,13 +19,16 @@ temp_backup/
 .tmp
 
 # 编辑器目录和文件
-.idea/
-.vscode/
+.idea
+.vscode
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-# 本地 Netlify 文件夹
-.netlify/
+# 系统文件
+Thumbs.db
+
+# 联系表单数据文件
+/server/contacts/

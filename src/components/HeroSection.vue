@@ -1,29 +1,26 @@
 <template>
   <section class="hero" :style="{ top: `${Math.max(heroHeight - scrollY, 0)}px` }">
     <div class="hero-content" :style="textStyle">
-      <h1 class="hero-title">这是 <br> 企业级 AI</h1>
-      <p class="hero-subtitle">15 年企业 AI 成功经验</p>
+      <h1 class="hero-title">把AI <br> 变成你公司的员工</h1>
+      <p class="hero-subtitle">让数据 可触达 可使用</p>
 
       <div class="heroNews-content">
         <div class="heroNews-section">
-          <p><strong>C3 变革 2025:</strong> <br>
-            参加为期两天的行业峰会，探索 AI 如何重塑商业未来。
+          <p><strong>变革 2025：</strong> <br>
+            定制化AI Agent深入到您的业务里。
           </p>
-          <a href="#" class="hero-link">注册参与</a>
         </div>
 
         <div class="heroNews-section">
-          <p><strong>C3 AI 与微软 Forge</strong> <br>
-            建立战略联盟，加速企业 AI 采用进程。
+          <p><strong>采取行动： </strong> <br>
+            抓取，分析，报告，一站式解决。
           </p>
-          <a href="#" class="hero-link">了解更多</a>
         </div>
 
         <div class="heroNews-section">
-          <p><strong>启动您的 AI 计划</strong> <br>
-            使用 C3 生成式 AI 加速器，迈向智能未来。
+          <p><strong>启动您的AI计划：</strong> <br>
+            不要再尝试人工智能了，开始用它工作。
           </p>
-          <a href="#" class="hero-link">立即注册</a>
         </div>
       </div>
     </div>

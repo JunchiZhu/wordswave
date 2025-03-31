@@ -28,12 +28,20 @@
             </div>
             <p class="case-industry"><strong>行业：</strong>法律行业（律师事务所、企业法务、法律顾问）</p>
             <div class="case-content">
-              <h4>产品使用场景</h4>
-              <ul>
-                <li>案例检索与快速决策：律师或法务在处理复杂案件时，通过自然语言输入案件要点，平台自动检索海量判决文书与相关法律法规，快速定位关键案例并输出裁判要点摘要。</li>
-                <li>合同审查与风险识别：面对大量商业合同，法务部门可批量上传文本，平台自动提取关键条款并标记潜在风险条款，如违约责任、争议解决条款缺失等。</li>
-                <li>合同自动补全：为未完成或缺少信息的合同提供补全建议，结合行业最佳实践与法规要求，自动插入标准化条款，减少重复工作。</li>
-              </ul>
+              <h4>AI法律助理使用场景</h4>
+              <div class="use-case-text">
+                <ul class="bullet-points">
+                  <li>
+                    <strong>高效案例匹配：</strong> 律师可一键快速检索并精准匹配历史相似案例，节省大量人工查阅时间，显著提高办案效率。
+                  </li>
+                  <li>
+                    <strong>合同风险智能扫描与摘要生成：</strong> AI自动扫描合同文件，快速识别并提示潜在风险点，同时智能生成判决文书摘要，降低人工审阅出错率，提高法律风险控制水平。
+                  </li>
+                  <li>
+                    <strong>专业法律咨询支持：</strong> AI助理实时提供专业法律咨询建议，帮助律师更精准地分析案件和决策，有效提升客户满意度，强化律所竞争优势，吸引投资者关注。
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -46,12 +54,20 @@
             </div>
             <p class="case-industry"><strong>行业：</strong>金融行业（银行、证券、保险、信托等）</p>
             <div class="case-content">
-              <h4>产品使用场景</h4>
-              <ul>
-                <li>快速风险评估：面对各类借款合同、项目投融资资料，金融从业者可批量上传文档，平台利用智能分析模型识别其中的财务、合规或法律风险点，并生成风险报告。</li>
-                <li>自然语言查询与数据分析：业务人员无需学习SQL即可直接输入"查询上个月交易额前十的客户"，平台自动转换成数据库查询语句并返回结果，可视化呈现交易趋势。</li>
-                <li>内外部合规文件管理：将合规手册、监管文件、内部政策文件上传并建立语义检索，员工在审批、风控或审计过程中可一键检索相应规定，确保业务操作符合监管要求。</li>
-              </ul>
+              <h4>智能舆情系统使用场景</h4>
+              <div class="use-case-text">
+                <ul class="bullet-points">
+                    <li>
+                      <strong>实时多平台舆情监控：</strong> 全天候监测社交媒体、新闻网站及论坛的实时信息，第一时间捕获潜在危机事件，避免信息滞后导致品牌损害。
+                    </li>
+                    <li>
+                      <strong>AI深度分析与风险预警：</strong> 利用AI技术自动分类信息、进行情感分析并及时预警风险，确保公关团队迅速掌握事件动向与严重程度。
+                    </li>
+                    <li>
+                      <strong>异常事件即时推送与报告生成：</strong> 在异常情况发生时，系统立即推送详细的舆情分析报告，助力企业公关团队迅速制定精准的危机应对策略，遏制负面影响扩散，有效维护品牌形象，提升投资人及用户关注。
+                    </li>
+                  </ul>
+               </div>
             </div>
           </div>
 
@@ -64,12 +80,20 @@
             </div>
             <p class="case-industry"><strong>行业：</strong>适用于所有对外部声誉、市场口碑高度关注的企业和机构</p>
             <div class="case-content">
-              <h4>产品使用场景</h4>
-              <ul>
-                <li>全网舆情监测：平台对媒体报道、社交媒体动态、论坛评论进行实时抓取，识别与企业或产品相关的关键词，一旦检测到重大负面信息或舆情爆发，即刻推送预警。</li>
-                <li>舆情分析与情感倾向判断：系统根据语义和情感分析模型，对外部评价分为正面、中立、负面，并提供舆情热度和演变趋势图表。</li>
-                <li>自动生成应对方案：平台结合历次舆情处理经验和企业的应对策略库，提供可行的应对文本和行动建议（如官方声明模版、问题排查清单），让公关部门更快采取措施。</li>
-              </ul>
+              <h4>AI数据库助手使用场景</h4>
+              <div class="use-case-text">
+                  <ul class="bullet-points">
+                    <li>
+                      <strong>智能化多库统一管理：</strong> AI数据库助手支持MySQL、PostgreSQL、Oracle等多种数据库的无缝集成与统一管理，彻底打破数据孤岛，显著提升数据查询效率。
+                    </li>
+                    <li>
+                      <strong>自动SQL优化与查询生成：</strong>  数据分析师仅需输入业务需求，系统自动生成高效优化的SQL查询，快速获得准确分析结果，大幅缩短报表制作周期。
+                    </li>
+                    <li>
+                      <strong>AI驱动动态报表与实时同步：</strong> 系统智能生成交互式动态数据看板，并自动同步数据库结构，确保数据实时更新与一致性，全面提高企业决策速度和数据处理效率，有效节约成本，增强市场竞争力与投资吸引力。
+                    </li>
+                  </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -130,12 +154,12 @@
             <h3 class="limitation-title">法律场景</h3>
             <div class="comparison-content">
               <div class="comparison-item problem">
-                <h4>大模型的局限性</h4>
-                <p>通用大模型往往无法追踪最新法规更新，也缺乏对地方法规和实际案例的深度理解，极易产生"看似正确但事实错误"的输出。</p>
+                <h4>通用大模型的局限性：</h4>
+                <p>大多数通用大模型虽然具备广泛知识，但在法律领域常因缺乏专业语料和案例训练，导致处理复杂法律文书、案例匹配及合同风险扫描时存在精准度不足、专业性欠缺的问题。</p>
               </div>
               <div class="comparison-item solution">
-                <h4>我们的优势</h4>
-                <p>我们通过构建专属法规数据库和Advanced RAG、搭建条款级风险识别模型，并提供私有化部署，让法务、律所能够实时掌握法条变动并获得可解释的合规审查报告。</p>
+                <h4>我们的优势：</h4>
+                <p>我们的AI法律助理基于垂直法律领域数据深度训练，能够精准匹配相似案例、快速检测合同风险、智能提炼判决文书精华，并提供专业法律咨询，有效提升案件分析效率和决策质量。</p>
               </div>
             </div>
           </div>
@@ -144,12 +168,12 @@
             <h3 class="limitation-title">金融场景</h3>
             <div class="comparison-content">
               <div class="comparison-item problem">
-                <h4>大模型的局限性</h4>
-                <p>大模型难以对接银行等机构的内部数据库与实时业务指标，单靠生成式输出无法满足合规审查与精细化数据分析的需求。</p>
+                <h4>通用大模型的局限性：</h4>
+                <p>通用大模型无法进入舆情系统里面，难以快速准确地进行情感识别和风险预警，且在高并发监控场景下响应速度不足，难以满足企业对舆情实时监控的定制化需求。</p>
               </div>
               <div class="comparison-item solution">
-                <h4>我们的优势</h4>
-                <p>我们将自然语言查询（NL2SQL）与金融风控模型结合，在企业内部私有化部署，通过优化算法提高模型对关键信息的理解并辅助业务人员决策。</p>
+                <h4>我们的优势：</h4>
+                <p>我们的智能舆情系统专注于舆情数据的实时监控和深度分析，通过优化算法实现全网信息快速整合、情绪打分和多维预警，帮助企业及时捕捉危机苗头并迅速制定应对策略，保护品牌形象。</p>
               </div>
             </div>
           </div>
@@ -158,12 +182,12 @@
             <h3 class="limitation-title">舆情场景</h3>
             <div class="comparison-content">
               <div class="comparison-item problem">
-                <h4>大模型的局限性</h4>
-                <p>一般大模型缺乏对多渠道舆情的实时抓取能力，也无法针对行业特定的负面情感和关键词进行精准监测与主题聚类。</p>
+                <h4>通用大模型的局限性：</h4>
+                <p>通用大模型在数据查询和报表生成方面，虽能处理一定规模数据，但面对多数据库异构环境、高并发查询及数据结构同步需求时，缺乏专门的SQL优化和跨库管理能力，容易导致效率低下和数据不一致问题。</p>
               </div>
               <div class="comparison-item solution">
-                <h4>我们的优势</h4>
-                <p>我们通过多渠道数据采集加分布式爬取，第一时间捕捉社交媒体、论坛、新闻源的舆情，并利用自研情感分析与主题聚类算法，识别深度负面评论和传播路径。</p>
+                <h4>我们的优势：</h4>
+                <p>我们的AI数据库助手专注于数据库领域，通过AI驱动自动生成优化SQL、支持10+数据库无缝管理、智能生成动态报表及数据结构自动同步，实现高效数据探索与实时更新，助力企业实现数据驱动决策。</p>
               </div>
             </div>
           </div>
@@ -187,7 +211,7 @@ export default {
 <style scoped>
 .industry-use-cases {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 80px 40px;
   color: #333333;
@@ -234,11 +258,11 @@ export default {
 .tab.active:after {
   content: '';
   position: absolute;
-  bottom: -1px;
+  bottom: 0;
   left: 0;
-  width: 100%;
+  right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #2563eb, #0891b2);
+  background: linear-gradient(90deg, #6366f1, #a855f7);
   z-index: 2;
 }
 
@@ -270,8 +294,8 @@ export default {
 .case-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 40px;
+  gap: 30px;
+  margin-top: 50px;
 }
 
 .case-card {
@@ -285,8 +309,7 @@ export default {
   position: relative;
   border: 1px solid #f0f0f0;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  min-height: 550px;
 }
 
 .case-card:hover {
@@ -295,66 +318,67 @@ export default {
 }
 
 .case-header {
-  padding: 30px;
+  padding: 20px 25px;
   background: linear-gradient(90deg, #2563eb, #0891b2);
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .case-icon {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.4rem;
+  font-size: 2rem;
   color: white;
 }
 
 .case-title {
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   color: #ffffff;
   margin: 0;
 }
 
 .case-industry {
-  padding: 0 30px;
+  padding: 0 25px;
   margin: 20px 0;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #666666;
 }
 
 .case-content {
-  padding: 0 30px 30px;
+  padding: 0 25px 25px;
   flex-grow: 1;
-  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
 .case-content h4 {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin: 0 0 20px 0;
   color: #2563eb;
   border-bottom: 1px solid #e5e7eb;
   padding-bottom: 10px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .case-content ul {
   margin: 0;
-  padding-left: 20px;
+  padding: 0;
+  list-style: none;
 }
 
-.case-content li {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: #666666;
+.case-content ul {
+  font-size: 1.6rem;
+  color: #444444;
   line-height: 1.5;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  text-align: left;
+  letter-spacing: 0.02em;
 }
 
 /* 优势卡片样式 */
@@ -484,11 +508,52 @@ export default {
 }
 
 /* 响应式调整 */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .case-container,
   .advantages-grid,
   .limitation-container {
+    gap: 25px;
+  }
+  
+  .case-card {
+    min-height: 600px;
+  }
+  
+  .bullet-points li {
+    font-size: 1.4rem;
+  }
+  
+  .bullet-points li strong {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .case-container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .advantages-grid,
+  .limitation-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .case-card {
+    min-height: 550px;
+  }
+  
+  .use-case-text {
+    font-size: 1.5rem;
+  }
+  
+  .bullet-points li {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .bullet-points li strong {
+    font-size: 1.5rem;
   }
 }
 
@@ -514,6 +579,11 @@ export default {
   .advantages-grid,
   .limitation-container {
     grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .case-card {
+    min-height: auto;
   }
   
   .case-title {
@@ -521,7 +591,12 @@ export default {
   }
   
   .case-content h4 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+  }
+  
+  .use-case-text {
+    font-size: 1.6rem;
+    padding: 15px;
   }
   
   .advantage-card h3 {
@@ -553,5 +628,70 @@ export default {
   .tab.active:after {
     height: 2px;
   }
+}
+
+.use-case-text {
+  font-size: 1.6rem;
+  color: #444444;
+  line-height: 1.5;
+  text-align: left;
+  letter-spacing: 0.02em;
+  background-color: #f9fafb;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+  border-left: 4px solid #2563eb;
+  margin-top: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bullet Points */
+.bullet-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.bullet-points li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #666666;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.bullet-points li:last-child {
+  margin-bottom: 0;
+}
+
+.bullet-points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(to right, #9c5cff, #ff72b1);
+  border-radius: 50%;
+}
+
+.bullet-points li strong {
+  color: #333333;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 1.5rem;
 }
 </style>

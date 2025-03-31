@@ -30,28 +30,28 @@ export default {
     return {
       news: [
         {
-          img: require("@/assets/product_card_2.jpg"),
+          img: require("@/assets/products/product_card_2.jpg"),
           title: "新一代AI技术实现重大突破",
           description: "我们最新的大语言模型在多项基准测试中超越行业标准，为企业客户带来更智能的解决方案。",
           link: "#",
           date: "2023-06-15"
         },
         {
-          img: require("@/assets/product_card_1.png"),
+          img: require("@/assets/products/product_card_1.png"),
           title: "公司荣获2023科技创新奖",
           description: "凭借在人工智能领域的突出贡献，我们公司被评为年度最具创新力科技企业之一。",
           link: "#",
           date: "2023-05-20"
         },
         {
-          img: require("@/assets/product_card_3.png"),
+          img: require("@/assets/products/product_card_3.png"),
           title: "与全球500强企业达成战略合作",
           description: "我们将为多家世界500强企业提供定制化的AI解决方案，帮助他们实现数字化转型。",
           link: "#",
           date: "2023-04-08"
         },
         {
-          img: require("@/assets/product_card_3.png"),
+          img: require("@/assets/products/product_card_3.png"),
           title: "与全球500强企业达成战略合作",
           description: "我们将为多家世界500强企业提供定制化的AI解决方案，帮助他们实现数字化转型。",
           link: "#",

@@ -19,14 +19,14 @@
 
 <script>
 import HomeHeader from '@/components/HomeHeader.vue';
-import Footer from '@/components/FooterComponent.vue';
+import HomeFooter from '@/components/HomeFooter.vue';
 import IndustryUseCases from '@/components/IndustryUseCases.vue';
 
 export default {
   components: {
     IndustryUseCases,
     Header: HomeHeader,
-    Footer: Footer,
+    Footer: HomeFooter,
   },
 };
 </script>

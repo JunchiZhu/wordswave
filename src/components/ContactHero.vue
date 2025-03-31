@@ -7,6 +7,22 @@
         有任何疑问或合作需求？欢迎联系我们，我们将尽快回复您的信息！
       </p>
 
+      <!-- 通知区域 -->
+      <div class="notification" :class="{ show: showNotification, success: notificationSuccess, error: !notificationSuccess }">
+        <div class="notification-content">
+          <div class="notification-icon">
+            <i :class="notificationSuccess ? 'fas fa-check-circle' : 'fas fa-times-circle'"></i>
+          </div>
+          <div class="notification-message">
+            <h4>{{ notificationTitle }}</h4>
+            <p>{{ notificationMessage }}</p>
+          </div>
+          <button class="notification-close" @click="closeNotification">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
       <!-- 联系信息和表单区域 -->
       <div class="contact-main">
         <!-- 联系方式信息 -->
@@ -71,7 +87,7 @@
               <textarea id="message" name="message" v-model="form.message" rows="4" required></textarea>
             </div>
 
-            <button type="submit">提交信息</button>
+            <button type="submit" :disabled="isLoading">提交信息</button>
           </form>
         </div>
       </div>
@@ -80,7 +96,8 @@
 </template>
 
 <script>
-import emailjs from "@emailjs/browser";
+// 移除 EmailJS 引用，改用 axios 或 fetch
+// import emailjs from "@emailjs/browser";
 
 export default {
   name: "ContactHero",
@@ -92,28 +109,84 @@ export default {
         phone: "",
         message: "",
       },
+      isLoading: false,
+      showNotification: false,
+      notificationSuccess: true,
+      notificationTitle: "",
+      notificationMessage: "",
     };
   },
   methods: {
     async sendEmail() {
-      const serviceID = "service_g29ji7r";
-      const templateID = "template_0c0fhpk";
-      const publicKey = "ZvLCxe7nfAthMFvNM";
-
       try {
-        await emailjs.sendForm(serviceID, templateID, this.$refs.contactForm, { publicKey });
-        alert(`谢谢您的留言，${this.form.name}！我们会尽快回复您。`);
-
-        // 清空表单
-        this.form.name = "";
-        this.form.email = "";
-        this.form.phone = "";
-        this.form.message = "";
+        this.isLoading = true;
+        
+        // 使用后端API提交表单
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(this.form)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          // 显示成功通知
+          this.showSuccessNotification(`谢谢您的留言，${this.form.name}！`, '我们会尽快回复您。');
+          
+          // 清空表单
+          this.form.name = "";
+          this.form.email = "";
+          this.form.phone = "";
+          this.form.message = "";
+          
+          // 滚动到页面顶部
+          window.scrollTo({ top: this.$el.offsetTop - 100, behavior: 'smooth' });
+        } else {
+          // 显示错误通知
+          this.showErrorNotification('提交失败', result.message || '请稍后再试');
+        }
       } catch (error) {
-        alert("发送邮件失败，请稍后再试。");
-        console.error("邮件发送错误:", error);
+        console.error("提交表单错误:", error);
+        // 显示错误通知
+        this.showErrorNotification('提交失败', '发生了未知错误，请稍后再试');
+      } finally {
+        this.isLoading = false;
       }
     },
+    
+    // 显示成功通知
+    showSuccessNotification(title, message) {
+      this.notificationTitle = title;
+      this.notificationMessage = message;
+      this.notificationSuccess = true;
+      this.showNotification = true;
+      
+      // 5秒后自动关闭
+      setTimeout(() => {
+        this.closeNotification();
+      }, 5000);
+    },
+    
+    // 显示错误通知
+    showErrorNotification(title, message) {
+      this.notificationTitle = title;
+      this.notificationMessage = message;
+      this.notificationSuccess = false;
+      this.showNotification = true;
+      
+      // 5秒后自动关闭
+      setTimeout(() => {
+        this.closeNotification();
+      }, 5000);
+    },
+    
+    // 关闭通知
+    closeNotification() {
+      this.showNotification = false;
+    }
   },
 };
 </script>
@@ -393,6 +466,108 @@ button:hover {
   
   .contact-form {
     padding: 30px 20px;
+  }
+}
+
+/* 通知样式 */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 400px;
+  max-width: 90vw;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateX(120%);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.3s ease;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.notification.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.notification::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+}
+
+.notification.success::before {
+  background: linear-gradient(to bottom, #4ade80, #10b981);
+}
+
+.notification.error::before {
+  background: linear-gradient(to bottom, #ef4444, #b91c1c);
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.notification-icon {
+  margin-right: 15px;
+  font-size: 2.4rem;
+}
+
+.notification.success .notification-icon {
+  color: #10b981;
+}
+
+.notification.error .notification-icon {
+  color: #ef4444;
+}
+
+.notification-message {
+  flex-grow: 1;
+}
+
+.notification-message h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.8rem;
+  color: #1f2937;
+}
+
+.notification-message p {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #6b7280;
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 10px;
+  transition: color 0.3s;
+  width: auto;
+  height: auto;
+}
+
+.notification-close:hover {
+  color: #4b5563;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .notification {
+    width: calc(100% - 40px);
+    max-width: none;
+    top: 10px;
+    right: 20px;
   }
 }
 </style>

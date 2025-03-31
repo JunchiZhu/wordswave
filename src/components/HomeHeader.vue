@@ -24,7 +24,7 @@
         >
           <router-link
               :to="item.path"
-              :class="['nav-link', { 'contact-link': item.text === '联系我们' }, { 'nav-link-hover': ['软件介绍', '行业案例', '公司动态/服务流程', '公司介绍'].includes(item.text) }]"
+              :class="['nav-link', { 'contact-link': item.text === '联系我们' }, { 'nav-link-hover': ['软件介绍', '行业案例', '服务流程', '公司介绍'].includes(item.text) }]"
           >
             {{ item.text }}
           </router-link>
@@ -77,7 +77,7 @@ export default {
       navItems: [
         { text: '软件介绍', path: '/software' },
         { text: '行业案例', path: '/industry' },
-        { text: '公司动态/服务流程', path: '/services' },
+        { text: '服务流程', path: '/services' },
         { text: '公司介绍', path: '/company' },
         { text: '联系我们', path: '/contact' },
       ],
