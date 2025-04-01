@@ -73,9 +73,9 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1; /* 保持你的 z-index */
+  z-index: 1;
   overflow: hidden;
-  padding: 0 5vw;
+  padding: 0 3vw;
 }
 
 .hero::before {
@@ -93,25 +93,25 @@ export default {
 
 .hero-content {
   text-align: center;
-  width: 60%;
-  max-width: 90vw;
+  width: min(94vw, 1400px);
+  max-width: 94vw;
   z-index: 2;
   position: relative;
 }
 
 .hero-title {
-  font-size: 4vw;
+  font-size: clamp(2.5rem, 4vw, 5rem);
   font-weight: bold;
-  margin-bottom: 1vw;
+  margin-bottom: calc(1vw + 5px);
   line-height: 1.2;
   text-transform: uppercase;
   color: white;
 }
 
 .hero-subtitle {
-  font-size: 2vw;
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
   font-weight: 600;
-  margin-bottom: 4vh;
+  margin-bottom: calc(2vw + 20px);
   color: white;
 }
 
@@ -119,9 +119,9 @@ export default {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  gap: 2vw;
+  gap: calc(1.5vw + 10px);
   flex-wrap: wrap;
-  margin-top: 10vh;
+  margin-top: calc(5vw + 30px);
 }
 
 .heroNews-section {
@@ -129,8 +129,8 @@ export default {
   flex: 1;
   min-width: 30%;
   border-left: 3px solid white;
-  padding-left: 2vw;
-  margin-top: 2vh;
+  padding-left: calc(1vw + 10px);
+  margin-top: calc(1vw + 10px);
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -140,10 +140,17 @@ export default {
 }
 
 .heroNews-section p {
-  font-size: 1.3vw;
+  font-size: clamp(1.2rem, 1.8vw, 2.2rem);
   font-weight: 500;
   line-height: 1.5;
   color: white;
+}
+
+.heroNews-section strong {
+  font-size: clamp(1.4rem, 2vw, 2.4rem);
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.5rem;
 }
 
 .heroNews-section a {
@@ -160,31 +167,27 @@ export default {
 
 @media (max-width: 1000px) {
   .hero-content {
-    width: 80%;
-  }
-
-  .hero-title {
-    font-size: 4vw;
-  }
-
-  .hero-subtitle {
-    font-size: 2.5vw;
+    width: min(90vw, 800px);
   }
 
   .heroNews-content {
     flex-direction: column;
-    align-items: center;
-    gap: 5vw;
+    align-items: flex-start;
+    gap: calc(2vw + 15px);
   }
 
   .heroNews-section {
     width: 100%;
     text-align: left;
-    padding-left: 4vw;
+    padding-left: calc(2vw + 10px);
   }
 
   .heroNews-section p {
-    font-size: 2vw;
+    font-size: clamp(1.3rem, 2.5vw, 2.2rem);
+  }
+  
+  .heroNews-section strong {
+    font-size: clamp(1.5rem, 2.8vw, 2.5rem);
   }
 }
 
@@ -194,19 +197,23 @@ export default {
   }
 
   .hero-title {
-    font-size: 5vw;
+    font-size: clamp(2rem, 5vw, 4rem);
   }
 
   .hero-subtitle {
-    font-size: 3vw;
+    font-size: clamp(1.2rem, 3vw, 2rem);
   }
 
   .heroNews-section p {
-    font-size: 2.5vw;
+    font-size: clamp(1.1rem, 3vw, 2rem);
+  }
+  
+  .heroNews-section strong {
+    font-size: clamp(1.3rem, 3.3vw, 2.2rem);
   }
 
   .heroNews-section {
-    padding-left: 5vw;
+    padding-left: calc(3vw + 5px);
   }
 }
 </style>

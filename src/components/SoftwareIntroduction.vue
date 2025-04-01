@@ -103,43 +103,44 @@ export default {
 /* 标题样式 */
 .section-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: calc(3vw + 20px);
 }
 
 .section-header .title {
-  font-size: 4.4rem;
+  font-size: clamp(2.5rem, 4.4vw, 4.4rem);
   background: linear-gradient(45deg, #4ade80, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 15px;
+  margin-bottom: calc(1vw + 5px);
 }
 
 .section-header .description {
-  font-size: 2.2rem;
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
   color: #666666;
-  max-width: 800px;
+  max-width: min(90vw, 800px);
   margin: 0 auto;
 }
 
 /* 系统概述 */
 .system-overview {
-  margin-bottom: 80px;
+  margin-bottom: calc(4vw + 40px);
 }
 
 .content-box {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(min(90vw, 450px), 1fr));
+  gap: calc(2vw + 20px);
 }
 
 .positioning, .goals {
   background-color: #ffffff;
-  padding: 35px;
-  border-radius: 12px;
+  padding: calc(2vw + 15px);
+  border-radius: clamp(8px, 1vw, 12px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
   border: 1px solid #f0f0f0;
+  text-align:left;
 }
 
 .positioning::before, .goals::before {
@@ -154,19 +155,19 @@ export default {
 
 .positioning h3, .goals h3 {
   color: #3b82f6;
-  font-size: 2.8rem;
-  margin-bottom: 25px;
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+  margin-bottom: calc(1.5vw + 10px);
   position: relative;
 }
 
 .positioning ul, .goals ul {
-  padding-left: 20px;
+  padding-left: calc(1vw + 10px);
 }
 
 .positioning li, .goals li {
   color: #666666;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+  margin-bottom: calc(1vw + 5px);
   line-height: 1.6;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -176,12 +177,12 @@ export default {
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: calc(2vw + 10px);
 }
 
 .feature {
   background-color: #ffffff;
-  border-radius: 12px;
+  border-radius: clamp(8px, 1vw, 12px);
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -194,19 +195,20 @@ export default {
 }
 
 .feature-header {
-  padding: 25px 30px;
+  padding: calc(1.5vw + 10px) calc(2vw + 10px);
   background: linear-gradient(45deg, rgba(74, 222, 128, 0.1), rgba(59, 130, 246, 0.1));
   border-bottom: 1px solid #f0f0f0;
 }
 
 .feature-header h3 {
   color: #3b82f6;
-  font-size: 2.4rem;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
   margin: 0;
 }
 
 .feature-content {
-  padding: 25px 30px;
+  padding: calc(1.5vw + 10px) calc(2vw + 10px);
+  text-align:left;
 }
 
 .feature-content ul {
@@ -217,8 +219,8 @@ export default {
 
 .feature-content li {
   color: #666666;
-  font-size: 1.6rem;
-  margin-bottom: 15px;
+  font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  margin-bottom: calc(1vw + 5px);
   line-height: 1.6;
 }
 
@@ -241,22 +243,53 @@ export default {
 @media (max-width: 768px) {
   .features-grid {
     grid-template-columns: 1fr;
+    gap: calc(1.5vw + 10px);
+  }
+  
+  .section-header {
+    margin-bottom: calc(2vw + 15px);
   }
   
   .section-header .title {
-    font-size: 3.6rem;
+    font-size: clamp(2.2rem, 3.6vw, 3.6rem);
   }
   
   .section-header .description {
-    font-size: 1.8rem;
+    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
   }
   
   .positioning h3, .goals h3 {
-    font-size: 2.4rem;
+    font-size: clamp(1.6rem, 2.4vw, 2.4rem);
   }
   
   .positioning li, .goals li {
-    font-size: 1.6rem;
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  }
+  
+  .content-box {
+    gap: calc(1.5vw + 10px);
+  }
+  
+  .positioning, .goals {
+    padding: calc(1.5vw + 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header .title {
+    font-size: clamp(2rem, 3vw, 3rem);
+  }
+  
+  .section-header .description {
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  }
+  
+  .feature-header h3 {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+  }
+  
+  .feature-content li {
+    font-size: clamp(1rem, 1.4vw, 1.4rem);
   }
 }
 </style>

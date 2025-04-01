@@ -151,17 +151,17 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2vh 4vw; /* 维持上下 padding 比例 */
+  padding: clamp(10px, 2vh, 25px) clamp(15px, 3vw, 60px);
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; /* 只左右拉伸 */
-  height: 10vh; /* 固定高度 */
-  min-width: 30%; /* 最小宽度，防止内容被挤压 */
-  max-width: 100%; /* 确保不会超出屏幕 */
+  width: 100%;
+  height: clamp(50px, 10vh, 90px);
+  min-width: 30%;
+  max-width: 100%;
   z-index: 1000;
   transition: all 0.3s ease;
-  box-sizing: border-box; /* 确保 padding 不影响总高度 */
+  box-sizing: border-box;
 }
 
 /* 隐藏 header 样式 */
@@ -228,14 +228,14 @@ export default {
 }
 
 .logo {
-  flex-shrink: 0; /* 防止被挤压 */
-  font-size: 2.5vh;
-  text-decoration: none; /* 移除链接下划线 */
+  flex-shrink: 0;
+  font-size: clamp(1.5rem, 2.5vh, 3rem);
+  text-decoration: none;
 }
 
 .logo h2 {
   margin: 0;
-  font-size: 2vh;
+  font-size: clamp(1.2rem, 2vh, 2.5rem);
   white-space: nowrap;
   color: white;
 }
@@ -243,23 +243,23 @@ export default {
 .desktop-nav {
   display: flex;
   justify-content: flex-end;
-  flex-wrap: nowrap; /* 确保内容不会换行 */
-  width: auto; /* 让其自适应 */
-  min-width: 50%; /* 确保不会太小 */
-  max-width: 70%; /* 限制最大宽度 */
+  flex-wrap: nowrap;
+  width: auto;
+  min-width: 50%;
+  max-width: 70%;
 }
 
 .desktop-nav-links {
   display: flex;
-  gap: 3vw;
+  gap: clamp(10px, 2.5vw, 50px);
   margin-left: auto;
-  flex-wrap: nowrap; /* 避免换行 */
+  flex-wrap: nowrap;
 }
 
 /* 统一导航链接和按钮样式 */
 .nav-link,
 .contact-link {
-  font-size: 1.8vh; /* 统一字体大小 */
+  font-size: clamp(0.9rem, 1.6vh, 1.8rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -293,10 +293,10 @@ export default {
 }
 
 .contact-link {
-  font-size: 1.9vh; /* 按钮稍大 */
-  padding: 1vh 2vw; /* 增大内边距，提高可读性 */
-  height: 4.5vh; /* 让按钮高度与导航栏对齐 */
-  border: 0.2vh solid white; /* 默认边框 */
+  font-size: clamp(1rem, 1.9vh, 2rem);
+  padding: clamp(5px, 1vh, 15px) clamp(10px, 2vw, 30px);
+  height: clamp(30px, 4.5vh, 60px);
+  border: clamp(1px, 0.2vh, 3px) solid white;
   font-weight: bold;
   display: inline-flex;
   align-items: center;
@@ -397,19 +397,19 @@ export default {
     display: block;
     background-color: rgba(255, 255, 255, 0.95);
     position: absolute;
-    top: 10vw;
+    top: clamp(40px, 10vw, 80px);
     width: 100%;
     text-align: center;
   }
 
   .nav-link,
   .contact-link {
-    font-size: 2.2vh; /* 在移动端适当放大字体 */
+    font-size: clamp(1rem, 2.2vh, 2.2rem);
   }
 
   .contact-link {
-    padding: 1.2vh 3vw; /* 增大触摸区域 */
-    height: 5vh;
+    padding: clamp(6px, 1.2vh, 16px) clamp(15px, 3vw, 40px);
+    height: clamp(34px, 5vh, 60px);
   }
 }
 </style>

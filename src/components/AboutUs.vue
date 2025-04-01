@@ -157,6 +157,7 @@ export default {
 <style scoped>
 .about-us-container {
   width: 100%;
+  max-width: 100%;
   color: #333333;
   background-color: #ffffff;
   overflow-x: hidden;
@@ -164,16 +165,14 @@ export default {
 
 /* Content Container */
 .content-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 40px;
+  width: 100%;
 }
 
 /* Tab Navigation */
 .tab-navigation {
   display: flex;
   justify-content: center;
-  margin-bottom: 80px;
+  margin-bottom: calc(4vw + 10px);
   position: relative;
 }
 
@@ -189,9 +188,9 @@ export default {
 }
 
 .tab {
-  padding: 20px 40px;
+  padding: calc(1vw + 10px) calc(2vw + 15px);
   cursor: pointer;
-  font-size: 2.4rem;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
   position: relative;
   color: #666666;
   transition: all 0.3s;
@@ -220,19 +219,19 @@ export default {
 
 /* Content Section */
 .content-section {
-  margin-bottom: 100px;
+  margin-bottom: calc(5vw + 30px);
 }
 
 .section-title {
-  font-size: 4.4rem;
-  margin-bottom: 40px;
+  font-size: clamp(2.8rem, 4.4vw, 4.4rem);
+  margin-bottom: calc(2vw + 20px);
   color: #1f2937;
 }
 
 .content-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: calc(3vw + 20px);
   align-items: center;
 }
 
@@ -241,41 +240,41 @@ export default {
 }
 
 .company-alias {
-  font-size: 3rem;
+  font-size: clamp(2rem, 3vw, 3rem);
   color: #4b5563;
-  margin-bottom: 30px;
+  margin-bottom: calc(1.5vw + 15px);
 }
 
 .vision {
-  font-size: 2.6rem;
+  font-size: clamp(1.8rem, 2.6vw, 2.6rem);
   color: #2563eb;
-  margin-bottom: 30px;
+  margin-bottom: calc(1.5vw + 15px);
   font-weight: 600;
 }
 
 .description {
-  font-size: 2.2rem;
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
   line-height: 1.6;
   color: #4b5563;
 }
 
 .image-content img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: clamp(8px, 1vw, 12px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* 任务部分样式 */
 .mission-intro {
-  margin-bottom: 80px;
+  margin-bottom: calc(4vw + 30px);
   text-align: center;
 }
 
 .mission-description {
-  font-size: 2.2rem;
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
   line-height: 1.6;
   color: #4b5563;
-  max-width: 900px;
+  max-width: min(90vw, 900px);
   margin: 0 auto;
 }
 
@@ -283,19 +282,19 @@ export default {
 .feature-layout {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: calc(5vw + 30px);
 }
 
 .feature-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: calc(4vw + 20px);
   align-items: center;
 }
 
 .feature-row.reverse {
   direction: rtl;
-  gap: 100px;
+  gap: calc(5vw + 20px);
 }
 
 .feature-row.reverse > * {
@@ -319,23 +318,23 @@ export default {
 }
 
 .feature-title {
-  margin-bottom: 30px;
+  margin-bottom: calc(1.5vw + 15px);
   position: relative;
   display: inline-block;
 }
 
 .feature-heading {
-  font-size: 3.6rem;
+  font-size: clamp(2.4rem, 3.6vw, 3.6rem);
   color: #2563eb;
   margin-bottom: 0;
   position: relative;
 }
 
 .feature-summary {
-  font-size: 2.2rem;
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
   line-height: 1.6;
   color: #4b5563;
-  margin-top: 20px;
+  margin-top: calc(1vw + 10px);
 }
 
 .feature-card {
@@ -344,8 +343,8 @@ export default {
 
 .feature-content {
   background-color: #ffffff;
-  padding: 40px;
-  border-radius: 12px;
+  padding: calc(2vw + 20px);
+  border-radius: clamp(8px, 1vw, 12px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
@@ -369,26 +368,27 @@ export default {
 }
 
 .feature-description {
-  font-size: 2.2rem;
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
   line-height: 1.6;
   color: #4b5563;
   margin: 0;
+  text-align:left;
 }
 
 /* Why Us Section */
 .advantages-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  margin-top: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: calc(2vw + 20px);
+  margin-top: calc(2.5vw + 25px);
 }
 
 .advantage-card {
   background-color: #ffffff;
-  padding: 40px;
-  border-radius: 12px;
+  padding: calc(2vw + 20px);
+  border-radius: clamp(8px, 1vw, 12px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -411,56 +411,59 @@ export default {
 }
 
 .advantage-icon {
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 4vw, 4rem);
   color: #2563eb;
-  margin-bottom: 30px;
+  margin-bottom: calc(1.5vw + 15px);
 }
 
 .advantage-card h3 {
-  margin-bottom: 20px;
+  margin-bottom: calc(1vw + 10px);
   color: #1f2937;
-  font-size: 2.6rem;
+  font-size: clamp(1.8rem, 2.6vw, 2.6rem);
 }
 
 .advantage-card p {
   color: #4b5563;
   line-height: 1.6;
-  font-size: 2rem;
+  font-size: clamp(1.3rem, 2vw, 2rem);
 }
 
 /* 修改响应式设计 */
+@media (max-width: 1024px) {
+  .feature-title::before {
+    left: -40px;
+    width: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .content-grid {
     grid-template-columns: 1fr;
   }
   
   .tab {
-    padding: 15px 20px;
-    font-size: 1.8rem;
+    padding: calc(0.8vw + 7px) calc(1.2vw + 10px);
+    font-size: clamp(1.4rem, 1.8vw, 1.8rem);
   }
   
   .section-title {
-    font-size: 3.6rem;
+    font-size: clamp(2.4rem, 3.6vw, 3.6rem);
   }
   
   .company-alias {
-    font-size: 2.6rem;
+    font-size: clamp(1.8rem, 2.6vw, 2.6rem);
   }
   
   .vision {
-    font-size: 2.4rem;
+    font-size: clamp(1.6rem, 2.4vw, 2.4rem);
   }
   
   .description {
-    font-size: 2rem;
+    font-size: clamp(1.3rem, 2vw, 2rem);
   }
   
   .advantages-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .content-container {
-    padding: 40px 20px;
   }
   
   .image-content {
@@ -468,13 +471,13 @@ export default {
   }
   
   .mission-description {
-    font-size: 2rem;
+    font-size: clamp(1.3rem, 2vw, 2rem);
   }
   
   .feature-row {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: calc(1.5vw + 15px);
   }
   
   .feature-row.reverse {
@@ -492,7 +495,7 @@ export default {
   
   .feature-title {
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: calc(1vw + 10px);
   }
   
   .feature-title::before {
@@ -500,20 +503,73 @@ export default {
   }
   
   .feature-heading {
-    font-size: 2.8rem;
+    font-size: clamp(2rem, 2.8vw, 2.8rem);
   }
   
   .feature-summary {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
+    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+    margin-bottom: calc(1.5vw + 15px);
   }
   
   .feature-content {
-    padding: 30px;
+    padding: calc(1.5vw + 15px);
   }
   
   .feature-description {
-    font-size: 1.8rem;
+    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-navigation {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: calc(2vw + 15px);
+  }
+  
+  .tab {
+    width: 100%;
+    text-align: left;
+    padding: calc(0.6vw + 6px) calc(1vw + 5px);
+    font-size: clamp(1.2rem, 1.6vw, 1.6rem);
+  }
+  
+  .section-title {
+    font-size: clamp(2rem, 2.8vw, 2.8rem);
+    margin-bottom: calc(1.5vw + 10px);
+  }
+  
+  .company-alias {
+    font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  }
+  
+  .vision {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+  }
+  
+  .description {
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  }
+  
+  .feature-heading {
+    font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+  }
+  
+  .feature-summary, 
+  .feature-description {
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  }
+  
+  .advantage-card {
+    padding: calc(1.5vw + 15px);
+  }
+  
+  .advantage-card h3 {
+    font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  }
+  
+  .advantage-card p {
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
   }
 }
 </style>

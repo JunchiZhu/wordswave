@@ -106,7 +106,7 @@ export default {
         {
           img: require("@/assets/product_images/industry.jpg"),
           title: "更多功能",
-          description: "即将推出",
+          description: "",
           longDescription: "",
           hasModal: false
         }
@@ -133,25 +133,25 @@ export default {
   color: #333333;
   width: 100%;
   position: relative;
-  padding: 100px 5vw;
+  padding: calc(5vw + 50px) 3vw;
   text-align: center;
   z-index: 2;
 }
 
 .core-features-container {
-  max-width: 1200px;
+  max-width: min(94vw, 1400px);
   margin: 0 auto;
 }
 
 .title-section {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: calc(3vw + 30px);
 }
 
 .section-title {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
   font-weight: 300;
-  margin-bottom: 15px;
+  margin-bottom: calc(1vw + 10px);
   letter-spacing: 0.3rem;
   color: #333333;
   position: relative;
@@ -159,30 +159,30 @@ export default {
 }
 
 .title-underline {
-  width: 60px;
+  width: clamp(40px, 4vw, 60px);
   height: 3px;
   background: linear-gradient(90deg, #6366f1, #a855f7);
-  margin: 0 auto 20px;
+  margin: 0 auto calc(1vw + 15px);
 }
 
 .subtitle {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 2vw, 2rem);
   color: #666666;
-  max-width: 800px;
+  max-width: min(94vw, 800px);
   margin: 0 auto;
   line-height: 1.6;
 }
 
 .core-features-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(2vw + 20px);
   justify-content: center;
 }
 
 .feature-card {
   background-color: #ffffff;
-  border-radius: 12px;
+  border-radius: clamp(8px, 1vw, 12px);
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -220,7 +220,7 @@ export default {
 }
 
 .feature-image {
-  height: 250px;
+  height: clamp(180px, 25vw, 250px);
   overflow: hidden;
   position: relative;
   background-color: #f8f9fa;
@@ -238,7 +238,7 @@ export default {
 }
 
 .feature-content {
-  padding: 25px;
+  padding: calc(1.5vw + 15px);
   text-align: left;
   flex-grow: 1;
   display: flex;
@@ -246,9 +246,9 @@ export default {
 }
 
 .feature-title {
-  font-size: 2.2rem;
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
   color: #333333;
-  margin-bottom: 15px;
+  margin-bottom: calc(1vw + 10px);
   font-weight: 600;
   line-height: 1.3;
   min-height: 2.8em;
@@ -259,7 +259,7 @@ export default {
 }
 
 .feature-description {
-  font-size: 1.6rem;
+  font-size: clamp(1.2rem, 1.6vw, 1.6rem);
   line-height: 1.6;
   color: #666666;
   flex-grow: 1;
@@ -282,9 +282,9 @@ export default {
 
 .modal-content {
   background-color: #ffffff;
-  border-radius: 16px;
-  padding: 40px;
-  max-width: 900px;
+  border-radius: clamp(8px, 1.6vw, 16px);
+  padding: calc(2vw + 20px);
+  max-width: min(90vw, 900px);
   width: 90%;
   max-height: 85vh;
   overflow-y: auto;
@@ -310,15 +310,15 @@ export default {
 
 .close-button {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: calc(1vw + 15px);
+  right: calc(1vw + 15px);
   background: none;
   border: none;
-  font-size: 30px;
+  font-size: clamp(2rem, 3vw, 30px);
   color: #666;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: clamp(30px, 4vw, 40px);
+  height: clamp(30px, 4vw, 40px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -335,14 +335,14 @@ export default {
 
 .modal-header {
   display: flex;
-  gap: 30px;
-  margin-bottom: 40px;
+  gap: calc(1.5vw + 15px);
+  margin-bottom: calc(2vw + 20px);
   align-items: flex-start;
 }
 
 .modal-image {
   width: 40%;
-  border-radius: 12px;
+  border-radius: clamp(8px, 1vw, 12px);
   object-fit: cover;
   aspect-ratio: 16/9;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -354,22 +354,22 @@ export default {
 }
 
 .modal-title {
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: calc(1vw + 10px);
   text-align: left;
   line-height: 1.3;
 }
 
 .modal-divider {
   height: 4px;
-  width: 60px;
+  width: clamp(40px, 6vw, 60px);
   background: linear-gradient(90deg, #6366f1, #a855f7);
-  margin-bottom: 20px;
+  margin-bottom: calc(1vw + 10px);
 }
 
 .modal-description {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
   color: #555;
   line-height: 1.5;
   text-align: left;
@@ -380,16 +380,16 @@ export default {
 }
 
 .modal-detail-text {
-  font-size: 1.6rem;
+  font-size: clamp(1.2rem, 1.6vw, 1.6rem);
   line-height: 1.7;
   color: #666;
-  margin-bottom: 30px;
+  margin-bottom: calc(1.5vw + 15px);
 }
 
 .modal-features-title {
-  font-size: 2.2rem;
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: calc(1vw + 10px);
 }
 
 .modal-feature-list {
@@ -400,9 +400,9 @@ export default {
 
 .modal-feature-list li {
   position: relative;
-  padding-left: 28px;
-  margin-bottom: 15px;
-  font-size: 1.6rem;
+  padding-left: calc(1.4vw + 14px);
+  margin-bottom: calc(0.8vw + 8px);
+  font-size: clamp(1.2rem, 1.6vw, 1.6rem);
   color: #555;
   line-height: 1.5;
 }
@@ -428,7 +428,7 @@ export default {
   }
   
   .core-features-cards {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .modal-header {
@@ -438,14 +438,6 @@ export default {
   .modal-image {
     width: 100%;
     margin-bottom: 20px;
-  }
-  
-  .modal-title {
-    font-size: 2.4rem;
-  }
-  
-  .modal-description {
-    font-size: 1.6rem;
   }
 }
 
@@ -467,33 +459,8 @@ export default {
     gap: 30px;
   }
   
-  .feature-title {
-    font-size: 1.8rem;
-  }
-  
-  .feature-description {
-    font-size: 1.4rem;
-  }
-  
   .modal-content {
     padding: 30px;
-  }
-  
-  .modal-title {
-    font-size: 2rem;
-  }
-  
-  .modal-description {
-    font-size: 1.4rem;
-  }
-  
-  .modal-detail-text,
-  .modal-feature-list li {
-    font-size: 1.4rem;
-  }
-  
-  .modal-features-title {
-    font-size: 1.8rem;
   }
 }
 

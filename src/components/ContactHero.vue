@@ -53,8 +53,10 @@
 
           <!-- 公司地图 -->
           <div class="map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2901.073041679124!2d113.6254!3d34.7466!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5YyX5Lqs5biC5Lit5Zu95Lit5Zu9!5e0!3m2!1szh-CN!2sus!4v1618100447587!5m2!1szh-CN!2sus"
+            <iframe 
+              src="https://map.baidu.com/poi/%E6%B5%B7%E6%B7%80%E5%8C%BA/@12949579.835,4838523.13,16z?uid=b83c312e94ef3bce7d7f6a3d&ugc_type=3&ugc_ver=1&device_ratio=2&wd=%E5%8C%97%E4%BA%AC%E5%B8%82%E6%B5%B7%E6%B7%80%E5%8C%BA&da_src=shareurl"
+              frameborder="0"
+              scrolling="no"
               allowfullscreen
             ></iframe>
           </div>
@@ -68,22 +70,22 @@
           </div>
           <form ref="contactForm" @submit.prevent="sendEmail">
             <div class="form-group">
-              <label for="name">您的姓名</label>
+              <label for="name">您的姓名：</label>
               <input type="text" id="name" name="user_name" v-model="form.name" required />
             </div>
 
             <div class="form-group">
-              <label for="email">您的邮箱</label>
+              <label for="email">您的邮箱：</label>
               <input type="email" id="email" name="user_email" v-model="form.email" required />
             </div>
 
             <div class="form-group">
-              <label for="phone">您的电话号码</label>
+              <label for="phone">您的电话号码：</label>
               <input type="tel" id="phone" name="user_phone" v-model="form.phone" required />
             </div>
 
             <div class="form-group">
-              <label for="message">您的需求</label>
+              <label for="message">您的需求：</label>
               <textarea id="message" name="message" v-model="form.message" rows="4" required></textarea>
             </div>
 
@@ -96,8 +98,6 @@
 </template>
 
 <script>
-// 移除 EmailJS 引用，改用 axios 或 fetch
-// import emailjs from "@emailjs/browser";
 
 export default {
   name: "ContactHero",
@@ -133,25 +133,33 @@ export default {
         const result = await response.json();
         
         if (result.success) {
-          // 显示成功通知
-          this.showSuccessNotification(`谢谢您的留言，${this.form.name}！`, '我们会尽快回复您。');
+          // 滚动到页面顶部后再显示通知
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          
+          // 延迟显示通知，等待页面滚动完成
+          setTimeout(() => {
+            this.showSuccessNotification(`谢谢您的留言，${this.form.name}！`, '我们会尽快与您联系，感谢您对我们的关注。');
+          }, 500);
           
           // 清空表单
           this.form.name = "";
           this.form.email = "";
           this.form.phone = "";
           this.form.message = "";
-          
-          // 滚动到页面顶部
-          window.scrollTo({ top: this.$el.offsetTop - 100, behavior: 'smooth' });
         } else {
           // 显示错误通知
-          this.showErrorNotification('提交失败', result.message || '请稍后再试');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(() => {
+            this.showErrorNotification('提交失败', result.message || '请稍后再试，或通过其他联系方式与我们联系。');
+          }, 500);
         }
       } catch (error) {
         console.error("提交表单错误:", error);
         // 显示错误通知
-        this.showErrorNotification('提交失败', '发生了未知错误，请稍后再试');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => {
+          this.showErrorNotification('提交失败', '发生了未知错误，请稍后再试或通过其他方式联系我们。');
+        }, 500);
       } finally {
         this.isLoading = false;
       }
@@ -164,10 +172,10 @@ export default {
       this.notificationSuccess = true;
       this.showNotification = true;
       
-      // 5秒后自动关闭
+      // 8秒后自动关闭
       setTimeout(() => {
         this.closeNotification();
-      }, 5000);
+      }, 8000);
     },
     
     // 显示错误通知
@@ -177,10 +185,10 @@ export default {
       this.notificationSuccess = false;
       this.showNotification = true;
       
-      // 5秒后自动关闭
+      // 8秒后自动关闭
       setTimeout(() => {
         this.closeNotification();
-      }, 5000);
+      }, 8000);
     },
     
     // 关闭通知
@@ -195,30 +203,29 @@ export default {
 /* 主容器 */
 .contact-container {
   width: 100%;
+  max-width: 100%;
   color: #333333;
   background-color: #ffffff;
 }
 
 /* 内容区域 */
 .content-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 40px;
+  width: 100%;
 }
 
 .section-title {
-  font-size: 4.4rem;
+  font-size: clamp(2.8rem, 4.4vw, 4.4rem);
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: calc(1vw + 10px);
   color: #1f2937;
 }
 
 .section-description {
-  font-size: 2.2rem;
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
   text-align: center;
   color: #4b5563;
-  max-width: 800px;
-  margin: 0 auto 60px;
+  max-width: min(90vw, 800px);
+  margin: 0 auto calc(3vw + 30px);
   line-height: 1.6;
 }
 
@@ -226,20 +233,20 @@ export default {
 .contact-main {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 60px;
+  gap: calc(3vw + 30px);
 }
 
 /* 联系信息样式 */
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: calc(1.5vw + 15px);
 }
 
 .info-card {
   background-color: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
+  padding: calc(1.5vw + 15px);
+  border-radius: clamp(8px, 1vw, 12px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease;
@@ -264,19 +271,19 @@ export default {
 }
 
 .info-icon {
-  font-size: 3rem;
+  font-size: clamp(2rem, 3vw, 3rem);
   color: #2563eb;
-  margin-bottom: 20px;
+  margin-bottom: calc(1vw + 10px);
 }
 
 .info-card h3 {
-  font-size: 2.4rem;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
   color: #1f2937;
-  margin-bottom: 15px;
+  margin-bottom: calc(0.8vw + 7px);
 }
 
 .info-card p {
-  font-size: 2rem;
+  font-size: clamp(1.3rem, 2vw, 2rem);
   color: #4b5563;
 }
 
@@ -292,10 +299,10 @@ export default {
 
 /* 地图容器 */
 .map-container {
-  border-radius: 12px;
+  border-radius: clamp(8px, 1vw, 12px);
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  height: 300px;
+  height: clamp(250px, 30vh, 300px);
   border: 1px solid #e5e7eb;
 }
 
@@ -308,8 +315,8 @@ export default {
 /* 表单样式 */
 .contact-form {
   background-color: #ffffff;
-  padding: 40px;
-  border-radius: 12px;
+  padding: calc(2vw + 20px);
+  border-radius: clamp(8px, 1vw, 12px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
@@ -328,40 +335,41 @@ export default {
 
 .form-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: calc(1.5vw + 15px);
 }
 
 .form-header h3 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 3vw, 3rem);
   color: #1f2937;
-  margin-bottom: 15px;
+  margin-bottom: calc(0.8vw + 7px);
 }
 
 .form-header p {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
   color: #4b5563;
 }
 
 .form-group {
-  margin-bottom: 25px;
+  text-align: left;
+  margin-bottom: calc(1.2vw + 12px);
 }
 
 label {
   display: block;
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
   color: #4b5563;
-  margin-bottom: 10px;
+  margin-bottom: calc(0.5vw + 5px);
 }
 
 input,
 textarea {
   width: 100%;
-  padding: 15px;
+  padding: calc(0.8vw + 7px);
   background-color: #f9fafb;
   border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  border-radius: clamp(5px, 0.8vw, 8px);
   color: #1f2937;
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -376,9 +384,9 @@ button {
   background: linear-gradient(90deg, #2563eb, #0891b2);
   color: white;
   border: none;
-  padding: 15px 30px;
-  font-size: 2rem;
-  border-radius: 8px;
+  padding: calc(0.8vw + 7px) calc(1.5vw + 15px);
+  font-size: clamp(1.3rem, 2vw, 2rem);
+  border-radius: clamp(6px, 0.8vw, 8px);
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
   font-weight: 600;
@@ -386,109 +394,43 @@ button {
 }
 
 button:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
   box-shadow: 0 5px 20px rgba(37, 99, 235, 0.4);
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .contact-main {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .section-title {
-    font-size: 3.6rem;
-  }
-  
-  .section-description {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .content-container {
-    padding: 40px 20px;
-  }
-  
-  .contact-info {
-    gap: 20px;
-  }
-  
-  .info-card {
-    padding: 20px;
-  }
-  
-  .info-icon {
-    font-size: 2.5rem;
-  }
-  
-  .info-card h3 {
-    font-size: 2rem;
-  }
-  
-  .info-card p {
-    font-size: 1.6rem;
-  }
-  
-  .form-header h3 {
-    font-size: 2.4rem;
-  }
-  
-  .form-header p {
-    font-size: 1.6rem;
-  }
-  
-  label {
-    font-size: 1.6rem;
-  }
-  
-  input,
-  textarea {
-    padding: 12px;
-    font-size: 1.6rem;
-  }
-  
-  button {
-    padding: 12px 25px;
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-title {
-    font-size: 3rem;
-  }
-  
-  .section-description {
-    font-size: 1.8rem;
-  }
-  
-  .contact-form {
-    padding: 30px 20px;
-  }
 }
 
 /* 通知样式 */
 .notification {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 400px;
+  top: 100px;
+  left: 50%;
+  transform: translateX(120%) translateY(-50px) translateX(-50%);
+  width: 500px;
   max-width: 90vw;
   background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  transform: translateX(120%);
+  border-radius: clamp(8px, 1vw, 10px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
   opacity: 0;
-  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.3s ease;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease;
   z-index: 1000;
   overflow: hidden;
 }
 
 .notification.show {
-  transform: translateX(0);
+  transform: translateX(-50%) translateY(0);
   opacity: 1;
+  animation: notification-pulse 2s infinite;
+}
+
+@keyframes notification-pulse {
+  0% {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+  }
+  50% {
+    box-shadow: 0 15px 70px rgba(37, 99, 235, 0.4);
+  }
+  100% {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+  }
 }
 
 .notification::before {
@@ -496,7 +438,7 @@ button:hover {
   position: absolute;
   top: 0;
   left: 0;
-  width: 5px;
+  width: 8px;
   height: 100%;
 }
 
@@ -511,12 +453,12 @@ button:hover {
 .notification-content {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: calc(1.5vw + 15px);
 }
 
 .notification-icon {
-  margin-right: 15px;
-  font-size: 2.4rem;
+  margin-right: calc(1.2vw + 10px);
+  font-size: clamp(2.2rem, 3.2vw, 3.2rem);
 }
 
 .notification.success .notification-icon {
@@ -532,14 +474,14 @@ button:hover {
 }
 
 .notification-message h4 {
-  margin: 0 0 5px 0;
-  font-size: 1.8rem;
+  margin: 0 0 calc(0.5vw + 5px) 0;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
   color: #1f2937;
 }
 
 .notification-message p {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
   color: #6b7280;
 }
 
@@ -547,10 +489,10 @@ button:hover {
   background: none;
   border: none;
   color: #9ca3af;
-  font-size: 1.6rem;
+  font-size: clamp(1.4rem, 2vw, 2rem);
   cursor: pointer;
-  padding: 5px;
-  margin-left: 10px;
+  padding: 8px;
+  margin-left: calc(0.8vw + 8px);
   transition: color 0.3s;
   width: auto;
   height: auto;
@@ -562,7 +504,117 @@ button:hover {
   box-shadow: none;
 }
 
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contact-main {
+    gap: calc(2vw + 20px);
+  }
+}
+
 @media (max-width: 768px) {
+  .contact-main {
+    grid-template-columns: 1fr;
+    gap: calc(2vw + 20px);
+  }
+  
+  .section-title {
+    font-size: clamp(2.4rem, 3.6vw, 3.6rem);
+  }
+  
+  .section-description {
+    font-size: clamp(1.3rem, 2vw, 2rem);
+    margin-bottom: calc(2vw + 20px);
+  }
+  
+  .contact-info {
+    gap: calc(1vw + 10px);
+  }
+  
+  .info-card {
+    padding: calc(1.2vw + 12px);
+  }
+  
+  .info-icon {
+    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+    margin-bottom: calc(0.8vw + 7px);
+  }
+  
+  .info-card h3 {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    margin-bottom: calc(0.5vw + 5px);
+  }
+  
+  .info-card p {
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  }
+  
+  .form-header h3 {
+    font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+  }
+  
+  .form-header p {
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  }
+  
+  .contact-form {
+    padding: calc(1.5vw + 15px);
+  }
+  
+  label {
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  }
+  
+  input,
+  textarea {
+    padding: calc(0.6vw + 6px);
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  }
+  
+  button {
+    padding: calc(0.6vw + 6px) calc(1.2vw + 10px);
+    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: clamp(2rem, 3vw, 3rem);
+  }
+  
+  .section-description {
+    font-size: clamp(1.1rem, 1.8vw, 1.8rem);
+  }
+  
+  .contact-form {
+    padding: calc(1.2vw + 12px) calc(1vw + 5px);
+  }
+  
+  .form-header h3 {
+    font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  }
+  
+  .form-header p {
+    font-size: clamp(1rem, 1.6vw, 1.6rem);
+  }
+  
+  .form-group {
+    margin-bottom: calc(1vw + 10px);
+  }
+  
+  label {
+    font-size: clamp(1rem, 1.6vw, 1.6rem);
+  }
+  
+  input,
+  textarea {
+    padding: calc(0.5vw + 5px);
+    font-size: clamp(1rem, 1.6vw, 1.6rem);
+  }
+  
+  button {
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  }
+  
   .notification {
     width: calc(100% - 40px);
     max-width: none;

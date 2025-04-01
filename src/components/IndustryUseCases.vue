@@ -211,9 +211,8 @@ export default {
 <style scoped>
 .industry-use-cases {
   width: 100%;
-  max-width: 1600px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 80px 40px;
   color: #333333;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -223,7 +222,7 @@ export default {
 .tab-navigation {
   display: flex;
   justify-content: center;
-  margin-bottom: 80px;
+  margin-bottom: calc(4vw + 30px);
   position: relative;
 }
 
@@ -241,9 +240,9 @@ export default {
 }
 
 .tab {
-  padding: 20px 40px;
+  padding: calc(1vw + 10px) calc(2vw + 20px);
   cursor: pointer;
-  font-size: 2.4rem;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
   position: relative;
   color: #666666;
   transition: all 0.3s;
@@ -273,34 +272,35 @@ export default {
 /* Section Intro */
 .section-intro {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: calc(3vw + 30px);
 }
 
 .section-title {
-  font-size: 4.4rem;
-  margin-bottom: 20px;
+  font-size: clamp(2.5rem, 4.4vw, 4.4rem);
+  margin-bottom: calc(1vw + 10px);
   color: #333333;
 }
 
 .section-description {
-  font-size: 2.2rem;
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
   line-height: 1.6;
   color: #666666;
-  max-width: 900px;
+  max-width: min(90vw, 900px);
   margin: 0 auto;
+  text-align: left;
 }
 
 /* 案例卡片样式 */
 .case-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 50px;
+  gap: calc(2vw + 10px);
+  margin-top: calc(2.5vw + 25px);
 }
 
 .case-card {
   background-color: #ffffff;
-  border-radius: 12px;
+  border-radius: clamp(8px, 1vw, 12px);
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -309,7 +309,7 @@ export default {
   position: relative;
   border: 1px solid #f0f0f0;
   height: 100%;
-  min-height: 550px;
+  min-height: clamp(450px, 55vh, 550px);
 }
 
 .case-card:hover {
@@ -318,52 +318,53 @@ export default {
 }
 
 .case-header {
-  padding: 20px 25px;
+  padding: calc(1vw + 10px) calc(1.5vw + 10px);
   background: linear-gradient(90deg, #2563eb, #0891b2);
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: calc(0.8vw + 7px);
 }
 
 .case-icon {
-  width: 50px;
-  height: 50px;
+  width: clamp(35px, 5vw, 50px);
+  height: clamp(35px, 5vw, 50px);
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
   color: white;
 }
 
 .case-title {
-  font-size: 2.4rem;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
   color: #ffffff;
   margin: 0;
 }
 
 .case-industry {
-  padding: 0 25px;
-  margin: 20px 0;
-  font-size: 1.6rem;
+  padding: 0 calc(1.5vw + 10px);
+  margin: calc(1vw + 10px) 0;
+  font-size: clamp(1.1rem, 1.6vw, 1.6rem);
   color: #666666;
+  text-align:left;
 }
 
 .case-content {
-  padding: 0 25px 25px;
+  padding: 0 calc(1.5vw + 10px) calc(1.5vw + 10px);
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
 .case-content h4 {
-  font-size: 2rem;
-  margin: 0 0 20px 0;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  margin: 0 0 calc(1vw + 10px) 0;
   color: #2563eb;
   border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 10px;
-  text-align: center;
+  padding-bottom: calc(0.5vw + 5px);
+  text-align: left;
   font-weight: 600;
 }
 
@@ -385,16 +386,16 @@ export default {
 .advantages-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 50px;
+  gap: calc(2vw + 20px);
+  margin-top: calc(2.5vw + 25px);
 }
 
 .advantage-card {
   background-color: #ffffff;
-  padding: 40px;
-  border-radius: 12px;
+  padding: calc(2vw + 20px);
+  border-radius: clamp(8px, 1vw, 12px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -420,33 +421,33 @@ export default {
 }
 
 .advantage-icon {
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 4vw, 4rem);
   color: #2563eb;
-  margin-bottom: 30px;
+  margin-bottom: calc(1.5vw + 15px);
 }
 
 .advantage-card h3 {
-  margin-bottom: 20px;
+  margin-bottom: calc(1vw + 10px);
   color: #333333;
-  font-size: 2.6rem;
+  font-size: clamp(1.8rem, 2.6vw, 2.6rem);
 }
 
 .advantage-card p {
   color: #666666;
   line-height: 1.6;
-  font-size: 2rem;
+  font-size: clamp(1.3rem, 2vw, 2rem);
 }
 
 /* 对比分析样式 */
 .limitation-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: calc(2vw + 20px);
 }
 
 .limitation-card {
   background-color: #ffffff;
-  border-radius: 12px;
+  border-radius: clamp(8px, 1vw, 12px);
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid #f0f0f0;
@@ -456,26 +457,27 @@ export default {
 }
 
 .limitation-title {
-  padding: 30px;
+  padding: calc(1.5vw + 15px);
   margin: 0;
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
   color: #ffffff;
   background: linear-gradient(90deg, #2563eb, #0891b2);
 }
 
 .comparison-content {
-  padding: 30px;
+  padding: calc(1.5vw + 15px);
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
+  gap: calc(1.5vw + 15px);
   flex: 1;
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 .comparison-item {
-  padding: 20px;
-  border-radius: 8px;
+  padding: calc(1vw + 10px);
+  border-radius: clamp(6px, 0.8vw, 8px);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -492,13 +494,13 @@ export default {
 }
 
 .comparison-item h4 {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+  margin-bottom: calc(0.8vw + 7px);
   color: #333333;
 }
 
 .comparison-item p {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
   color: #666666;
   line-height: 1.6;
   margin: 0;
@@ -507,141 +509,18 @@ export default {
   flex: 1;
 }
 
-/* 响应式调整 */
-@media (max-width: 1400px) {
-  .case-container,
-  .advantages-grid,
-  .limitation-container {
-    gap: 25px;
-  }
-  
-  .case-card {
-    min-height: 600px;
-  }
-  
-  .bullet-points li {
-    font-size: 1.4rem;
-  }
-  
-  .bullet-points li strong {
-    font-size: 1.4rem;
-  }
-}
-
-@media (max-width: 1200px) {
-  .case-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-  
-  .advantages-grid,
-  .limitation-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .case-card {
-    min-height: 550px;
-  }
-  
-  .use-case-text {
-    font-size: 1.5rem;
-  }
-  
-  .bullet-points li {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-  }
-  
-  .bullet-points li strong {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .industry-use-cases {
-    padding: 40px 20px;
-  }
-  
-  .tab {
-    padding: 15px 20px;
-    font-size: 1.8rem;
-  }
-  
-  .section-title {
-    font-size: 3.2rem;
-  }
-  
-  .section-description {
-    font-size: 1.8rem;
-  }
-  
-  .case-container,
-  .advantages-grid,
-  .limitation-container {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .case-card {
-    min-height: auto;
-  }
-  
-  .case-title {
-    font-size: 2.4rem;
-  }
-  
-  .case-content h4 {
-    font-size: 2.2rem;
-  }
-  
-  .use-case-text {
-    font-size: 1.6rem;
-    padding: 15px;
-  }
-  
-  .advantage-card h3 {
-    font-size: 2.2rem;
-  }
-  
-  .limitation-title {
-    font-size: 2.4rem;
-    padding: 20px;
-  }
-  
-  .comparison-item h4 {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .tab-navigation {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .tab {
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid #e5e7eb;
-  }
-  
-  .tab.active:after {
-    height: 2px;
-  }
-}
-
 .use-case-text {
-  font-size: 1.6rem;
+  font-size: clamp(1.1rem, 1.6vw, 1.6rem);
   color: #444444;
   line-height: 1.5;
   text-align: left;
   letter-spacing: 0.02em;
   background-color: #f9fafb;
-  padding: 20px;
-  border-radius: 10px;
+  padding: calc(1vw + 10px);
+  border-radius: clamp(6px, 1vw, 10px);
   box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
   border-left: 4px solid #2563eb;
-  margin-top: 10px;
+  margin-top: calc(0.5vw + 5px);
   flex-grow: 1;
   overflow-y: auto;
   display: flex;
@@ -662,14 +541,11 @@ export default {
 
 .bullet-points li {
   position: relative;
-  padding-left: 18px;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
+  padding-left: calc(1vw + 8px);
+  margin-bottom: calc(1vw + 10px);
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
   line-height: 1.5;
   color: #666666;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 
 .bullet-points li:last-child {
@@ -691,7 +567,120 @@ export default {
   color: #333333;
   font-weight: 600;
   display: block;
-  margin-bottom: 4px;
-  font-size: 1.5rem;
+  margin-bottom: calc(0.2vw + 3px);
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+}
+
+/* 响应式调整 */
+@media (max-width: 1400px) {
+  .case-container,
+  .advantages-grid,
+  .limitation-container {
+    gap: calc(1.5vw + 10px);
+  }
+  
+  .case-card {
+    min-height: clamp(400px, 50vh, 600px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .case-container,
+  .advantages-grid,
+  .limitation-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(2vw + 10px);
+  }
+  
+  .case-card {
+    min-height: clamp(350px, 45vh, 550px);
+  }
+  
+  .tab-navigation {
+    margin-bottom: calc(3vw + 20px);
+  }
+  
+  .section-intro {
+    margin-bottom: calc(2.5vw + 25px);
+  }
+}
+
+@media (max-width: 768px) {
+  .tab {
+    padding: calc(0.8vw + 7px) calc(1.2vw + 10px);
+    font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+  }
+  
+  .section-title {
+    font-size: clamp(2.2rem, 3.2vw, 3.2rem);
+  }
+  
+  .section-description {
+    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+  }
+  
+  .case-container,
+  .advantages-grid,
+  .limitation-container {
+    grid-template-columns: 1fr;
+    gap: calc(1.5vw + 15px);
+  }
+  
+  .case-card {
+    min-height: auto;
+  }
+  
+  .limitation-title {
+    font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+    padding: calc(1vw + 10px);
+  }
+  
+  .comparison-item h4 {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+  }
+  
+  .comparison-item p {
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  }
+  
+  .advantage-card h3 {
+    font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  }
+  
+  .advantage-card p {
+    font-size: clamp(1.2rem, 1.6vw, 1.6rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-navigation {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: calc(2vw + 15px);
+  }
+  
+  .tab {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+  }
+  
+  .section-title {
+    font-size: clamp(2rem, 2.8vw, 2.8rem);
+  }
+  
+  .section-description {
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  }
+  
+  .case-title {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+  }
+  
+  .bullet-points li,
+  .bullet-points li strong {
+    font-size: clamp(1rem, 1.3vw, 1.3rem);
+  }
 }
 </style>

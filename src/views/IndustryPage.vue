@@ -9,9 +9,11 @@
       </div>
     </div>
 
-    <main class="main-section">
-      <IndustryUseCases />
-    </main>
+    <section class="industry-content">
+      <div class="content-container">
+        <IndustryUseCases />
+      </div>
+    </section>
 
     <Footer />
   </div>
@@ -54,8 +56,8 @@ export default {
 /* Hero Section */
 .hero-section {
   position: relative;
-  height: 60vh;
-  min-height: 400px;
+  height: clamp(300px, 60vh, 800px);
+  min-height: 300px;
   background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
   background-size: cover;
   background-position: center;
@@ -63,7 +65,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10vh;
+  margin-top: clamp(50px, 10vh, 100px);
   animation: fadeInUp 1s ease forwards;
 }
 
@@ -81,9 +83,9 @@ export default {
 }
 
 .hero-title {
-  font-size: 8rem;
+  font-size: clamp(3rem, 8vw, 8rem);
   color: #ffffff;
-  letter-spacing: 1rem;
+  letter-spacing: clamp(0.3rem, 1vw, 1rem);
   text-transform: uppercase;
   font-weight: 600;
   opacity: 0;
@@ -91,39 +93,45 @@ export default {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.main-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 5vh 5vw;
+.industry-content {
   background-color: #ffffff;
-  opacity: 0;
-  animation: fadeInUp 1s ease forwards 0.6s;
+  color: #333333;
+  width: 100%;
+  position: relative;
+  padding: calc(5vw + 50px) 3vw;
+  text-align: center;
+  z-index: 2;
+}
+
+.content-container {
+  max-width: min(94vw, 1400px);
+  margin: 0 auto;
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 5rem;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    letter-spacing: clamp(0.3rem, 0.5vw, 0.8rem);
   }
   
-  .main-section {
-    padding: 3vh 3vw;
+  .industry-content {
+    padding: calc(4vw + 30px) 3vw;
   }
 }
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 3.5rem;
-    letter-spacing: 0.5rem;
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    letter-spacing: clamp(0.2rem, 0.5vw, 0.5rem);
   }
   
   .hero-section {
-    height: 40vh;
+    height: clamp(200px, 40vh, 400px);
+  }
+  
+  .industry-content {
+    padding: calc(3vw + 20px) 3vw;
   }
 }
 </style>

@@ -2,79 +2,82 @@
 <template>
   <section class="pricing">
     <div class="section-header">
-      <h2 class="title">灵活定价，满足不同企业需求</h2>
-      <p class="description">我们提供多种定价方案，确保满足不同规模企业的需求。选择适合您业务的方案，开启智能化数据决策之旅。</p>
+      <h2 class="title">企业级解决方案，满足不同行业需求</h2>
+      <p class="description">我们提供专业化定制服务，为各行业客户打造专属智能解决方案，全方位满足您的业务需求。</p>
     </div>
 
     <div class="pricing-options">
       <div class="pricing-card">
         <div class="price-header">
-          <h3>基础版</h3>
-          <div class="price-tag">
-            <span class="currency">¥</span>
-            <span class="amount">49</span>
-            <span class="period">/ 月</span>
+          <div class="plan-icon">
+            <i class="fas fa-rocket"></i>
           </div>
+          <h3>初创方案</h3>
+          <div class="price-desc">为小型企业和创业团队设计</div>
         </div>
         <div class="divider"></div>
         <ul class="features-list">
-          <li>基本 AI 数据分析</li>
-          <li>每月最多50篇文档</li>
-          <li>舆情监控（基础版）</li>
-          <li>24/7 在线客户支持</li>
-          <li>单用户访问</li>
+          <li>基础数据分析功能</li>
+          <li>标准 AI 模型接入</li>
+          <li>每月最多处理 5GB 数据</li>
+          <li>基础舆情监控</li>
+          <li>单一业务场景应用</li>
+          <li>标准技术支持</li>
         </ul>
-        <button class="pricing-button">选择方案</button>
+        <a @click="scrollToContact" class="pricing-button">联系我们</a>
       </div>
 
       <div class="pricing-card featured">
-        <div class="popular-tag">推荐</div>
+        <div class="popular-tag">热门选择</div>
         <div class="price-header">
-          <h3>专业版</h3>
-          <div class="price-tag">
-            <span class="currency">¥</span>
-            <span class="amount">99</span>
-            <span class="period">/ 月</span>
+          <div class="plan-icon">
+            <i class="fas fa-building"></i>
           </div>
+          <h3>企业方案</h3>
+          <div class="price-desc">适合中型企业和成长型组织</div>
         </div>
         <div class="divider"></div>
         <ul class="features-list">
-          <li>高级 AI 模型</li>
-          <li>每月最多200篇文档</li>
-          <li>舆情监控（专业版）</li>
-          <li>多用户协作</li>
-          <li>优先客户支持</li>
-          <li>API 访问支持</li>
+          <li>高级数据分析套件</li>
+          <li>定制化 AI 模型训练</li>
+          <li>每月最多处理 50GB 数据</li>
+          <li>全方位舆情监控与预警</li>
+          <li>多业务场景深度整合</li>
+          <li>优先技术支持与咨询</li>
+          <li>API 开放接口</li>
         </ul>
-        <button class="pricing-button">选择方案</button>
+        <a @click="scrollToContact" class="pricing-button">联系我们</a>
       </div>
 
       <div class="pricing-card">
         <div class="price-header">
-          <h3>企业版</h3>
-          <div class="price-tag enterprise">
-            <span class="custom-price">定制</span>
+          <div class="plan-icon">
+            <i class="fas fa-crown"></i>
           </div>
+          <h3>旗舰方案</h3>
+          <div class="price-desc">为大型企业与机构量身定制</div>
         </div>
         <div class="divider"></div>
         <ul class="features-list">
-          <li>专属 AI 训练</li>
-          <li>无限文档处理能力</li>
-          <li>全功能舆情分析</li>
-          <li>无限 API 调用</li>
-          <li>专属客户经理</li>
-          <li>定制化解决方案</li>
+          <li>全套企业级数据分析方案</li>
+          <li>专属定制垂直领域模型</li>
+          <li>无限数据处理能力</li>
+          <li>行业专属知识库构建</li>
+          <li>多系统无缝集成</li>
+          <li>私有化部署选项</li>
+          <li>专属客户成功团队</li>
+          <li>全天候技术支持</li>
         </ul>
-        <button class="pricing-button">联系我们</button>
+        <a @click="scrollToContact" class="pricing-button">联系我们</a>
       </div>
     </div>
     
     <div class="cta-section">
       <div class="cta-content">
-        <h3>需要更多信息？</h3>
-        <p>如果您有任何疑问或需要了解更多详情，我们的专业团队随时为您提供帮助。</p>
+        <h3>需要专业咨询？</h3>
+        <p>立即预约产品演示，了解我们如何为您的业务提供智能化解决方案，提升业务效率和决策质量。</p>
       </div>
-      <button class="cta-button">预约演示</button>
+      <a @click="scrollToContact" class="cta-button">预约咨询</a>
     </div>
   </section>
 </template>
@@ -82,62 +85,66 @@
 <script>
 export default {
   name: 'ProductPricing',
+  methods: {
+    scrollToContact() {
+      // 导航到联系我们页面的留言部分
+      this.$router.push({ path: '/contact', query: { section: 'contact-form' } });
+    }
+  }
 };
 </script>
 
 <style scoped>
 .pricing {
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  padding: 80px 40px;
   color: #333333;
+  box-sizing: border-box;
   overflow-x: hidden;
 }
 
 /* 标题样式 */
 .section-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: calc(3vw + 30px);
 }
 
 .section-header .title {
-  font-size: 4.4rem;
+  font-size: clamp(2.5rem, 4.4vw, 4.4rem);
   color: #333333;
-  margin-bottom: 15px;
+  margin-bottom: calc(1vw + 10px);
 }
 
 .section-header .description {
-  font-size: 2.2rem;
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
   color: #666666;
-  max-width: 800px;
+  max-width: min(90vw, 900px);
   margin: 0 auto;
   line-height: 1.6;
 }
 
 /* 定价方案卡片 */
 .pricing-options {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 60px 0;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(2vw + 10px);
+  margin: calc(3vw + 30px) 0;
 }
 
 .pricing-card {
-  flex: 1;
-  min-width: 300px;
-  max-width: 350px;
   background-color: #ffffff;
-  padding: 40px 30px;
-  border-radius: 12px;
+  padding: calc(2vw + 20px);
+  border-radius: clamp(8px, 1vw, 12px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
   border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
 }
 
 .pricing-card:hover {
@@ -174,7 +181,7 @@ export default {
   background: linear-gradient(90deg, #2563eb, #0891b2);
   color: white;
   padding: 5px 30px;
-  font-size: 1.6rem;
+  font-size: clamp(1.2rem, 1.6vw, 1.6rem);
   transform: rotate(45deg) translateX(22px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   font-weight: 600;
@@ -182,66 +189,50 @@ export default {
 
 /* 价格头部 */
 .price-header {
-  margin-bottom: 25px;
+  margin-bottom: calc(1.5vw + 15px);
+}
+
+.plan-icon {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  color: #2563eb;
+  margin-bottom: calc(1vw + 10px);
 }
 
 .price-header h3 {
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: calc(0.8vw + 7px);
   color: #333333;
 }
 
-.price-tag {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  color: #2563eb;
-}
-
-.currency {
-  font-size: 2.5rem;
-  margin-right: 5px;
-  font-weight: 600;
-}
-
-.amount {
-  font-size: 5rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.period {
-  font-size: 2rem;
+.price-desc {
+  font-size: clamp(1.2rem, 1.6vw, 1.6rem);
   color: #666666;
-  margin-left: 5px;
-}
-
-.price-tag.enterprise .custom-price {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #2563eb;
+  max-width: 85%;
+  margin: 0 auto;
 }
 
 .divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.2), transparent);
-  margin: 20px 0 30px;
+  margin: calc(1.5vw + 15px) 0;
 }
 
 /* 功能列表 */
 .features-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 30px;
+  margin: 0 0 calc(2vw + 20px);
   text-align: left;
+  flex-grow: 1;
 }
 
 .features-list li {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
   color: #666666;
-  padding: 12px 0 12px 30px;
+  padding: calc(0.6vw + 6px) 0 calc(0.6vw + 6px) calc(1.5vw + 10px);
   position: relative;
+  line-height: 1.5;
 }
 
 .features-list li::before {
@@ -254,34 +245,36 @@ export default {
 
 /* 按钮样式 */
 .pricing-button {
+  display: block;
   width: 100%;
-  padding: 15px 0;
-  border: 2px solid #2563eb;
-  background-color: transparent;
-  color: #2563eb;
-  border-radius: 8px;
-  font-size: 1.8rem;
+  padding: calc(0.8vw + 7px) 0;
+  background: linear-gradient(90deg, #2563eb, #0891b2);
+  color: white;
+  border-radius: clamp(6px, 0.8vw, 8px);
+  font-size: clamp(1.4rem, 1.8vw, 1.8rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  margin-top: auto;
 }
 
 .pricing-button:hover {
-  background-color: #2563eb;
-  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
 }
 
 /* CTA区域 */
 .cta-section {
-  margin-top: 80px;
+  margin-top: calc(3vw + 30px);
   background-color: #ffffff;
-  padding: 50px 60px;
-  border-radius: 12px;
+  padding: calc(2.5vw + 25px) calc(3vw + 30px);
+  border-radius: clamp(8px, 1vw, 12px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: calc(1.5vw + 15px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
@@ -305,29 +298,31 @@ export default {
 }
 
 .cta-content h3 {
-  font-size: 3rem;
-  margin-bottom: 15px;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  margin-bottom: calc(0.8vw + 7px);
   color: #333333;
 }
 
 .cta-content p {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
   color: #666666;
   margin: 0;
   line-height: 1.6;
 }
 
 .cta-button {
-  padding: 15px 40px;
+  padding: calc(0.8vw + 7px) calc(1.5vw + 15px);
   background: linear-gradient(90deg, #2563eb, #0891b2);
   border: none;
-  border-radius: 8px;
+  border-radius: clamp(6px, 0.8vw, 8px);
   color: white;
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .cta-button:hover {
@@ -336,33 +331,45 @@ export default {
 }
 
 /* 响应式调整 */
-@media (max-width: 1024px) {
-  .pricing {
-    padding: 60px 30px;
-  }
-  
+@media (max-width: 1200px) {
   .pricing-options {
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(2vw + 15px);
   }
   
-  .pricing-card {
-    min-width: 280px;
+  .pricing-card.featured {
+    grid-column: span 2;
+    margin: 0 auto;
+    max-width: 500px;
   }
 }
 
 @media (max-width: 768px) {
-  .section-header .title {
-    font-size: 3.6rem;
+  .pricing-options {
+    grid-template-columns: 1fr;
+    gap: calc(2vw + 20px);
   }
   
-  .section-header .description {
-    font-size: 2rem;
+  .pricing-card {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .pricing-card.featured {
+    grid-column: auto;
+    transform: scale(1);
+    max-width: 500px;
+  }
+  
+  .pricing-card.featured:hover {
+    transform: translateY(-10px);
   }
   
   .cta-section {
     flex-direction: column;
     text-align: center;
-    padding: 40px 30px;
+    padding: calc(2vw + 20px) calc(1.5vw + 15px);
   }
   
   .cta-content {
@@ -371,44 +378,25 @@ export default {
 }
 
 @media (max-width: 480px) {
-  .pricing {
-    padding: 40px 20px;
-  }
-  
   .section-header .title {
-    font-size: 3rem;
+    font-size: clamp(2rem, 3vw, 3rem);
   }
   
   .section-header .description {
-    font-size: 1.8rem;
-  }
-  
-  .pricing-card {
-    min-width: 100%;
-  }
-  
-  .pricing-card.featured {
-    transform: scale(1);
-  }
-  
-  .pricing-card.featured:hover {
-    transform: translateY(-10px);
-  }
-  
-  .price-header h3 {
-    font-size: 2.4rem;
-  }
-  
-  .currency {
-    font-size: 2rem;
-  }
-  
-  .amount {
-    font-size: 4rem;
+    font-size: clamp(1.2rem, 1.6vw, 1.6rem);
   }
   
   .features-list li {
-    font-size: 1.6rem;
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  }
+  
+  .price-header h3 {
+    font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  }
+  
+  .pricing-button,
+  .cta-button {
+    font-size: clamp(1.2rem, 1.6vw, 1.6rem);
   }
 }
 </style>

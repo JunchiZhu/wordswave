@@ -102,7 +102,7 @@ export default {
 .feature-card {
   background-color: #f8f9ff;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
+  border-radius: clamp(8px, 1vw, 12px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -131,12 +131,12 @@ export default {
 
 .feature-img {
   width: 100%;
-  height: 220px;
+  height: clamp(180px, 22vw, 220px);
   object-fit: cover;
 }
 
 .feature-content {
-  padding: 25px;
+  padding: calc(1.5vw + 15px);
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -145,8 +145,8 @@ export default {
 }
 
 .feature-title {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+  margin-bottom: calc(1vw + 10px);
   font-weight: 600;
   color: #333333;
   letter-spacing: 0.3px;
@@ -159,8 +159,8 @@ export default {
 }
 
 .feature-description {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+  margin-bottom: calc(1vw + 10px);
   color: #666666;
   flex-grow: 1;
   line-height: 1.6;
@@ -194,9 +194,9 @@ export default {
 .view-details {
   color: white;
   background-color: #3b82f6;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-size: 1.6rem;
+  padding: calc(0.8vw + 8px) calc(1.5vw + 15px);
+  border-radius: clamp(4px, 0.6vw, 6px);
+  font-size: clamp(1.2rem, 1.6vw, 1.6rem);
   font-weight: 600;
   transition: transform 0.3s ease;
 }
@@ -224,13 +224,12 @@ export default {
 
 .modal-content {
   background-color: #ffffff;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 800px;
+  border-radius: clamp(8px, 1vw, 12px);
+  width: min(90vw, 800px);
   max-height: none;
   position: relative;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
-  margin: 100px auto 50px;
+  margin: calc(5vw + 50px) auto calc(3vw + 30px);
   animation: modalFadeIn 0.3s ease-out;
 }
 
@@ -295,10 +294,10 @@ export default {
 
 .modal-img {
   width: 100%;
-  height: 250px;
+  height: clamp(180px, 25vw, 250px);
   object-fit: cover;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-top-left-radius: clamp(8px, 1vw, 12px);
+  border-top-right-radius: clamp(8px, 1vw, 12px);
 }
 
 .modal-header h2 {
@@ -306,22 +305,22 @@ export default {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 20px;
+  padding: calc(1vw + 15px);
   background: linear-gradient(to top, rgba(255, 255, 255, 1), transparent);
   color: #333333;
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
   margin: 0;
   letter-spacing: 0.3px;
 }
 
 .modal-body {
-  padding: 30px;
+  padding: calc(2vw + 20px);
 }
 
 .modal-description {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 2vw, 2rem);
   color: #666666;
-  margin-bottom: 20px;
+  margin-bottom: calc(1.5vw + 15px);
   line-height: 1.6;
   letter-spacing: 0.2px;
 }
@@ -334,13 +333,13 @@ export default {
 .modal-long-description h3,
 .modal-features h3,
 .modal-links h3 {
-  font-size: 2.2rem;
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
   color: #3b82f6;
-  margin-bottom: 15px;
+  margin-bottom: calc(1vw + 10px);
   letter-spacing: 0.3px;
   text-align: left;
   position: relative;
-  padding-left: 15px;
+  padding-left: calc(1vw + 10px);
 }
 
 .modal-long-description h3::before,
@@ -358,7 +357,7 @@ export default {
 }
 
 .modal-long-description p {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
   line-height: 1.6;
   color: #666666;
   letter-spacing: 0.2px;
@@ -385,8 +384,8 @@ export default {
 
 .feature-list li {
   position: relative;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+  margin-bottom: calc(1vw + 10px);
   color: #666666;
   line-height: 1.5;
   letter-spacing: 0.2px;
@@ -415,11 +414,11 @@ export default {
   align-items: center;
   color: #3b82f6;
   text-decoration: none;
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
   transition: color 0.3s ease, transform 0.2s ease;
   background-color: rgba(59, 130, 246, 0.05);
-  padding: 10px 15px;
-  border-radius: 8px;
+  padding: calc(0.8vw + 8px) calc(1vw + 10px);
+  border-radius: clamp(6px, 0.8vw, 8px);
   letter-spacing: 0.2px;
 }
 

@@ -64,20 +64,20 @@ export default {
   color: #333333;
   width: 100%;
   position: relative;
-  padding: 100px 5vw;
+  padding: calc(5vw + 50px) 3vw;
   text-align: center;
   z-index: 2;
 }
 
 .title-section {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: calc(2vw + 20px);
 }
 
 .section-title {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
   font-weight: 300;
-  margin-bottom: 15px;
+  margin-bottom: calc(1vw + 10px);
   letter-spacing: 0.3rem;
   color: #333333;
   position: relative;
@@ -85,36 +85,36 @@ export default {
 }
 
 .title-underline {
-  width: 60px;
+  width: clamp(40px, 4vw, 60px);
   height: 3px;
   background: linear-gradient(90deg, #6366f1, #a855f7);
-  margin: 0 auto 20px;
+  margin: 0 auto calc(1vw + 15px);
 }
 
 .subheading {
-  font-size: 2rem;
-  max-width: 700px;
-  margin: 0 auto 60px;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  max-width: min(90vw, 700px);
+  margin: 0 auto calc(4vw + 30px);
   line-height: 1.6;
   color: #666666;
 }
 
 .features-container {
-  max-width: 1200px;
+  max-width: min(94vw, 1400px);
   margin: 0 auto;
 }
 
 .features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(2vw + 20px);
   justify-content: center;
 }
 
 .feature-card {
   background-color: #ffffff;
-  border-radius: 12px;
-  padding: 35px 30px;
+  border-radius: clamp(8px, 1vw, 12px);
+  padding: calc(2vw + 20px);
   text-align: left;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -145,9 +145,9 @@ export default {
 }
 
 .feature-title {
-  font-size: 2.2rem;
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
   color: #333333;
-  margin-bottom: 20px;
+  margin-bottom: calc(1vw + 15px);
   font-weight: 600;
   line-height: 1.3;
   min-height: 2.8em;
@@ -158,7 +158,7 @@ export default {
 }
 
 .feature-description {
-  font-size: 1.6rem;
+  font-size: clamp(1.2rem, 1.6vw, 1.6rem);
   line-height: 1.6;
   color: #666666;
 }
@@ -173,13 +173,13 @@ export default {
   }
   
   .features {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .product-features {
-    padding: 60px 20px;
+    padding: 80px 20px;
   }
   
   .section-title {

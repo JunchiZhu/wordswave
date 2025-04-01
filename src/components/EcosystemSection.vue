@@ -251,29 +251,29 @@ export default {
 
 <style scoped>
 .ecosystem-section {
-  background-color:#f0f7ff;
+  background-color: #f0f7ff;
   color: #333333;
   width: 100%;
-  padding: 120px 5vw;
+  padding: calc(5vw + 50px) 3vw;
   text-align: center;
   position: relative;
   z-index: 2;
 }
 
 .ecosystem-wrapper {
-  max-width: 1200px;
+  max-width: min(94vw, 1400px);
   margin: 0 auto;
 }
 
 .title-section {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: calc(3vw + 30px);
 }
 
 .section-title {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
   font-weight: 300;
-  margin-bottom: 15px;
+  margin-bottom: calc(1vw + 10px);
   letter-spacing: 0.3rem;
   color: #333333;
   position: relative;
@@ -281,16 +281,16 @@ export default {
 }
 
 .title-underline {
-  width: 60px;
+  width: clamp(40px, 4vw, 60px);
   height: 3px;
   background: linear-gradient(90deg, #6366f1, #a855f7);
-  margin: 0 auto 20px;
+  margin: 0 auto calc(1vw + 15px);
 }
 
 .subtitle {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 2vw, 2rem);
   color: #666666;
-  max-width: 800px;
+  max-width: min(94vw, 800px);
   margin: 0 auto;
   line-height: 1.6;
 }
@@ -299,15 +299,15 @@ export default {
 .ecosystem-container {
   display: flex;
   flex-direction: column;
-  border-radius: 16px;
-  padding: 40px;
+  border-radius: clamp(8px, 1.6vw, 16px);
+  padding: calc(2vw + 20px);
   background-color: rgba(255, 255, 255, 0.7);
   position: relative;
   overflow: hidden;
 }
 
 .ecosystem-content {
-  margin-bottom: 40px;
+  margin-bottom: calc(2vw + 20px);
   text-align: left;
   z-index: 5;
 }
@@ -315,13 +315,13 @@ export default {
 .ecosystem-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: calc(1vw + 10px);
 }
 
 .ecosystem-item {
   display: flex;
   align-items: flex-start;
-  gap: 15px;
+  gap: calc(0.8vw + 8px);
 }
 
 .dot-icon {
@@ -334,7 +334,7 @@ export default {
 }
 
 .ecosystem-item p {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
   line-height: 1.6;
   margin: 0;
   color: #666666;
@@ -343,12 +343,12 @@ export default {
 /* 轮播图标区域样式 */
 .icon-carousel-container {
   position: relative;
-  height: 400px;
+  height: clamp(300px, 40vw, 400px);
   overflow: hidden;
 }
 
 .icon-carousel-wrapper {
-  margin-bottom: 30px;
+  margin-bottom: calc(1.5vw + 15px);
   overflow: hidden;
 }
 
@@ -367,18 +367,18 @@ export default {
 
 .carousel-icon {
   flex: 0 0 auto;
-  width: 100px;
-  height: 100px;
-  margin: 0 20px;
+  width: clamp(70px, 10vw, 100px);
+  height: clamp(70px, 10vw, 100px);
+  margin: 0 clamp(8px, 2vw, 20px);
   background-color: white;
-  border-radius: 12px;
+  border-radius: clamp(6px, 1.2vw, 12px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  padding: 15px;
+  padding: calc(0.8vw + 8px);
 }
 
 .carousel-icon:hover {
@@ -399,7 +399,7 @@ export default {
 }
 
 .icon-name {
-  font-size: 1.2rem;
+  font-size: clamp(0.8rem, 1.2vw, 1.2rem);
   color: #666666;
   transition: color 0.3s ease;
 }
